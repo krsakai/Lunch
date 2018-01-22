@@ -1,0 +1,112 @@
+/*
+ Localizable.strings
+ RestaurantBoard
+ 
+ Created by 酒井 邦也 on 2017/02/25.
+ Copyright © 2017年 Recruit Lifestyle Co., Ltd. All rights reserved.
+ */
+
+// 共通
+"Common.ApplicationName"      = "お昼ごはん";
+"Common.Label.RangeSeparator" = "〜";
+"Common.Label.ListSeparator"  = "，";
+"Common.Label.SlashSeparator" = "／";
+"Common.Label.Plus"           = "＋";
+"Common.Label.Minus"          = "ー";
+"Common.Label.PersonNumber"   = "%@名";
+"Common.Label.OK"             = "OK";
+"Common.Label.YES"             = "はい";
+"Common.Label.NO"             = "いいえ";
+"Common.Label.Cancel"         = "キャンセル";
+"Common.Label.Error"          = "エラー";
+
+"Common.Label.Yesterday"            = "昨日";
+"Common.Label.Today"                = "今日";
+"Common.Label.Tomorrow"             = "明日";
+"Common.label.TheDayAfterTomorrow"  = "明後日";
+
+"Common.Label.AppStore" = "AppStoreへ";
+
+"Common.Label.AttendanceInput" = "出欠入力";
+"Common.Label.BulkInput" = "一括入力";
+"Alert.Title.MemberRegistComfirm" = "登録";
+"Alert.Message.Add" = "入力した内容で\n登録してもよろしいですか？";
+"Alert.Title.DeleteComfirm" = "削除";
+"Alert.Message.Delete" = "%@を\n削除してもよろしいですか？";
+
+// 位置情報
+//"Location."
+
+// サイドメニュー
+"SideMenu.HeaderLabel.MenuList" = "メニュー";
+"SideMenu.Label.LunchLottery" = "お昼抽選";
+"SideMenu.Label.StoreSearch" = "お店検索";
+"SideMenu.Label.LunchHistory" = "お昼履歴";
+"SideMenu.Label.Setting" = "設定";
+
+// 登録
+"Entry.HeaderLabel.Lesson" = "講義登録";
+"Entry.HeaderLabel.Event" = "イベント登録";
+"Entry.HeaderLabel.Member" = "メンバー登録";
+
+// メンバー選択
+"MemberSelection.Alert.Title.MemberRegister" = "メンバー登録";
+"MemberSelection.Alert.Message.MemberRegister" = "%@ に選択されたメンバーを追加してよろしいですか？";
+
+
+// ヘッダー
+"Header.Button.Label.UserRegist" = "登録";
+"Header.Title.Label.EventList" = "イベント";
+"Header.Button.Label.Reception" = "受付";
+"Header.Button.Label.Request" = "申請";
+"Header.Button.Label.Selection" = "選択";
+"Header.Title.Label.Settings" = "設定";
+"Header.Title.Label.MemberSelect" = "メンバー選択";
+"Header.Button.Label.Send" = "送信";
+"Header.Button.Label.Buld" = "一括";
+
+// モード
+"Mode.Title.Label.ModeSelect" = "モード選択";
+"Mode.Button.Label.Member" = "受講者";
+"Mode.Button.Label.Organizer" = "開催者";
+"Mode.Title.Label.ThemeSelect" = "テーマ色選択";
+"Mode.Title.Label.MemberSetting" = "受講者登録設定";
+"Mode.Alert.Title.NoEntry" = "メンバー未登録";
+"Mode.Alert.Message.NoEntry" = "メンバー未登録です。登録画面よりメンバー登録を行ってください";
+"Mode.Alert.Title.Unimplemented" = "機能未実装";
+"Mode.Alert.Message.Unimplemented" = "このバージョンでの受講者モードは未実装です。最新版のアプリを確認してください";
+
+// メンバー検索
+"MemberSearch.Title.Label.MemberSearch" = "メンバー検索";
+
+// ローディング
+"Loading.Title.Label.MemberSearch" = "メンバー受付中";
+"Loading.SubTitle.Label.TapCancel" = "画面タップで検索中断";
+
+// 設定
+"Setting.Label.Email.Address" = "メール宛先";
+"Setting.Label.Member.Name" = "ふりがな登録";
+"Setting.Label.Member.Email" = "メールアドレス登録";
+"Setting.Label.Data.DataManagement" = "データ管理";
+
+// メール
+"MailSend.Label.Subject.SendTemplate" = "テンプレートの送信";
+
+// ファイル取り込み
+"FileSetting.Header.Title.FileRead" = "ファイル取り込み";
+"FileSetting.Setting.Title.HowToUse" = "使い方";
+"FileSetting.Setting.Title.FileList" = "ファイル一覧";
+"FileSetting.Setting.Title.ReadFileSelect" = "読み込みファイル選択";
+"FileSetting.Setting.Title.TemplateSend" = "テンプレートファイルを送る";
+"FileSetting.Error.Title.ReadData" = "データ読み込み";
+"FileSetting.Error.Message.ReadData" = "%@件の%@のデータがあります。データを登録してもよろしいでしょうか？";
+
+// 入力画面
+"InputView.Button.Toolbar.Today" = "今日";
+"InpurtView.Button.Toolbar.Done" = "完了";
+"InputView.Label.Lesson.Title" = "講義名";
+"InputView.Label.Event.Title" = "イベント名";
+"InputView.Label.Event.Date" = "開催日";
+"InputView.Label.Member.NameKana" = "なまえ (かな)";
+"InputView.Label.Member.NameJp" = "名前 (フルネーム)";
+"InputView.Label.Member.Email" = "メールアドレス";

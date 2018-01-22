@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Store Search View Controller-->
+        <scene sceneID="m6d-5m-A0L">
+            <objects>
+                <viewController storyboardIdentifier="StoreSearchViewController" id="uNF-y4-oPg" customClass="StoreSearchViewController" customModule="Lunch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWq-ix-8jg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJa-DS-JSF" customClass="HeaderView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="j4D-si-pdY"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-zH-9sf">
+                                <rect key="frame" x="0.0" y="71" width="375" height="571"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gQy-XH-OHW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="81p-PQ-Lhw"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B8V-tv-uEP">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="521"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gQy-XH-OHW" secondAttribute="trailing" id="cFW-1g-U0s"/>
+                                    <constraint firstItem="gQy-XH-OHW" firstAttribute="leading" secondItem="cSi-zH-9sf" secondAttribute="leading" id="wRU-Jj-4vf"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sj5-B3-RYt" customClass="FooterView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2dN-IK-LZo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7JC-Ux-14W" firstAttribute="bottom" secondItem="sj5-B3-RYt" secondAttribute="bottom" id="1LO-Dq-FuG"/>
+                            <constraint firstItem="sj5-B3-RYt" firstAttribute="top" secondItem="cSi-zH-9sf" secondAttribute="bottom" id="6BV-Vj-g9b"/>
+                            <constraint firstItem="cSi-zH-9sf" firstAttribute="leading" secondItem="7JC-Ux-14W" secondAttribute="leading" id="KFS-Ph-kaP"/>
+                            <constraint firstItem="7JC-Ux-14W" firstAttribute="trailing" secondItem="cSi-zH-9sf" secondAttribute="trailing" id="KxU-dW-4AW"/>
+                            <constraint firstItem="QJa-DS-JSF" firstAttribute="top" secondItem="fWq-ix-8jg" secondAttribute="top" id="VYR-o8-tiv"/>
+                            <constraint firstItem="QJa-DS-JSF" firstAttribute="trailing" secondItem="7JC-Ux-14W" secondAttribute="trailing" id="bpp-wV-FqF"/>
+                            <constraint firstItem="cSi-zH-9sf" firstAttribute="top" secondItem="QJa-DS-JSF" secondAttribute="bottom" id="jA3-YC-yr2"/>
+                            <constraint firstItem="QJa-DS-JSF" firstAttribute="leading" secondItem="7JC-Ux-14W" secondAttribute="leading" id="mas-Uy-LJg"/>
+                            <constraint firstItem="sj5-B3-RYt" firstAttribute="leading" secondItem="7JC-Ux-14W" secondAttribute="leading" id="mgJ-Cq-yNP"/>
+                            <constraint firstItem="7JC-Ux-14W" firstAttribute="trailing" secondItem="sj5-B3-RYt" secondAttribute="trailing" id="rul-6v-jpy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7JC-Ux-14W"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAM-p9-bQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="102.99850074962519"/>
+        </scene>
+    </scenes>
+</document>
