@@ -1,3 +1,5 @@
+github "Alamofire/Alamofire" "4.6.0"
+github "Alamofire/AlamofireImage" "3.3.0"
 github "Hearst-DD/ObjectMapper" "2.2.5"
 github "ReactKit/SwiftTask" "98f89883509d27229d60ff3f2ececdd82a46d674"
 github "SnapKit/SnapKit" "3.2.0"

@@ -26,8 +26,8 @@ internal class LoadingController {
         SwiftSpinner.setTitleFont(LunchFont.loading.title)
         SwiftSpinner.useContainerView(AppDelegate.navigation?.view)
         loadingCompletion = completion ?? loadingCompletion
-        SwiftSpinner.show(R.string.localizable.loadingTitleLabelMemberSearch()).addTapHandler(
-        { self.hide() }, subtitle: R.string.localizable.loadingSubTitleLabelTapCancel())
+//        SwiftSpinner.show(R.string.localizable.loadingTitleLabelMemberSearch()).addTapHandler(
+//        { self.hide() }, subtitle: R.string.localizable.loadingSubTitleLabelTapCancel())
     }
     
     func update(title: String) {

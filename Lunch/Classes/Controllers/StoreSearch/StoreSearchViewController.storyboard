@@ -28,16 +28,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-zH-9sf">
                                 <rect key="frame" x="0.0" y="71" width="375" height="571"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gQy-XH-OHW">
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gQy-XH-OHW">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="81p-PQ-Lhw"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="uNF-y4-oPg" id="OVU-nA-VBk"/>
+                                        </connections>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B8V-tv-uEP">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="521"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-GG-rbf" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="orH-ty-oFP"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="151" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B8V-tv-uEP">
+                                        <rect key="frame" x="0.0" y="51" width="375" height="520"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="uNF-y4-oPg" id="1Ft-Rj-a9Q"/>
+                                            <outlet property="delegate" destination="uNF-y4-oPg" id="cpE-S8-Xdo"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -68,6 +86,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7JC-Ux-14W"/>
                     </view>
+                    <connections>
+                        <outlet property="headerView" destination="QJa-DS-JSF" id="Lye-xU-Xo0"/>
+                        <outlet property="tableView" destination="B8V-tv-uEP" id="F4k-is-w3s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAM-p9-bQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

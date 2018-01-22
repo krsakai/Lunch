@@ -15,6 +15,7 @@ import CoreLocation
 internal enum ApiInfo {
     
     case searchStoreFromLocation(location: CLLocation)
+    case searchStoreFromKeyword(keyword: String)
     
     var apiKey: String {
         return  "12687151f2b51658" // ホットペッパーAPIKey
@@ -26,7 +27,7 @@ internal enum ApiInfo {
     
     var path: String {
         switch self {
-        case .searchStoreFromLocation:
+        case .searchStoreFromLocation, .searchStoreFromKeyword:
             return "hotpepper/gourmet/v1/" // グルメサーチAPI
         }
     }
@@ -48,14 +49,18 @@ internal enum ApiInfo {
                         "lng": String(location.coordinate.longitude),
                         "range": DeviceModel.searchRange.rawValue
                     ]
-            
+        case .searchStoreFromKeyword(let keyword):
+            return
+                    [
+                        "keyword": keyword
+                    ]
         }
     }
     
     // FIXME: 変換エラーを考慮する
     func responseJSON(value: Dictionary<String, Any>) -> JSON {
         switch self {
-        case .searchStoreFromLocation:
+        case .searchStoreFromLocation, .searchStoreFromKeyword:
             return JSON(value)["results"]["shop"]
         }
     }

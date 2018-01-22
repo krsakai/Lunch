@@ -53,7 +53,7 @@ extension SideMenuViewController: UITableViewDataSource {
 
         var destinationViewController: UIViewController {
             switch self {
-            case .lunchLottery: return LunchLotteryViewController.instantiate()
+            case .lunchLottery: return StoreSearchViewController.instantiate()
             case .storeSearch: return StoreSearchViewController.instantiate()
             case .lunchHistory: return LunchHistoryViewController.instantiate()
             case .setting: return SettingViewController.instantiate()

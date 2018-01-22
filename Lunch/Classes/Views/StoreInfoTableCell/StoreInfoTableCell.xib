@@ -12,31 +12,116 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StoreInfoTableCell" customModule="Lunch" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="451" height="151"/>
+            <rect key="frame" x="0.0" y="0.0" width="460" height="151"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2co-fJ-kM9" customClass="UnderLineView" customModule="Lunch" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="150" width="451" height="1"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="GEc-7v-E7P"/>
-                    </constraints>
-                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8M-jI-0Fi">
-                    <rect key="frame" x="0.0" y="0.0" width="451" height="150"/>
+                    <rect key="frame" x="0.0" y="0.0" width="460.5" height="150"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-mH-Fpe">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-mH-Fpe">
                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="TSf-bz-9Dq"/>
                                 <constraint firstAttribute="width" constant="150" id="usP-kf-wkO"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bHB-4Y-kza">
-                            <rect key="frame" x="150" y="0.0" width="301" height="150"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6Q-HX-rvf" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="150" y="0.0" width="1" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="Csg-Dt-1jx"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-mq-vIN" userLabel="Store Info View">
+                            <rect key="frame" x="151" y="0.0" width="238.5" height="150"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗名" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWb-2t-XVU">
+                                    <rect key="frame" x="10" y="10" width="218.5" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="HWj-Bd-P7h"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh9-XC-rmh" customClass="WeakLabel" customModule="Lunch" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="50" width="218.5" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="textColors">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="営業時間" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiD-Oi-1mD" customClass="WeakLabel" customModule="Lunch" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="95" width="218.5" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="textColors">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="fiD-Oi-1mD" firstAttribute="top" secondItem="Qh9-XC-rmh" secondAttribute="bottom" id="08K-V8-4Wl"/>
+                                <constraint firstItem="pWb-2t-XVU" firstAttribute="leading" secondItem="V8y-mq-vIN" secondAttribute="leading" constant="10" id="4HY-fe-AIV"/>
+                                <constraint firstItem="fiD-Oi-1mD" firstAttribute="trailing" secondItem="pWb-2t-XVU" secondAttribute="trailing" id="63Q-bw-GaP"/>
+                                <constraint firstItem="Qh9-XC-rmh" firstAttribute="trailing" secondItem="pWb-2t-XVU" secondAttribute="trailing" id="7TO-Yn-ehU"/>
+                                <constraint firstItem="Qh9-XC-rmh" firstAttribute="leading" secondItem="pWb-2t-XVU" secondAttribute="leading" id="Lvj-Pi-jKk"/>
+                                <constraint firstAttribute="bottom" secondItem="fiD-Oi-1mD" secondAttribute="bottom" constant="10" id="Sc2-rd-2oD"/>
+                                <constraint firstItem="fiD-Oi-1mD" firstAttribute="leading" secondItem="pWb-2t-XVU" secondAttribute="leading" id="X9y-jv-5IX"/>
+                                <constraint firstItem="Qh9-XC-rmh" firstAttribute="top" secondItem="pWb-2t-XVU" secondAttribute="bottom" id="f82-Pp-5U3"/>
+                                <constraint firstAttribute="trailing" secondItem="pWb-2t-XVU" secondAttribute="trailing" constant="10" id="hgc-Jy-pNs"/>
+                                <constraint firstItem="fiD-Oi-1mD" firstAttribute="height" secondItem="Qh9-XC-rmh" secondAttribute="height" id="kWo-Sr-b8x"/>
+                                <constraint firstItem="pWb-2t-XVU" firstAttribute="top" secondItem="V8y-mq-vIN" secondAttribute="top" constant="10" id="mHS-96-p1B"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdL-bB-0un" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="389.5" y="0.0" width="1" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="I3h-Op-UAv"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="scO-sp-IxR">
+                            <rect key="frame" x="390.5" y="0.0" width="70" height="150"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-vi-lz7" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="74.5"/>
+                                    <state key="normal" title="詳細"/>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="am6-H5-6Wx" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="74.5" width="70" height="1"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="Tta-HK-0xp"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kff-7v-g1M" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="75.5" width="70" height="74.5"/>
+                                    <state key="normal" title="地図"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="tt7-vi-lz7" firstAttribute="height" secondItem="Kff-7v-g1M" secondAttribute="height" id="XBe-ZE-t51"/>
+                                <constraint firstAttribute="width" constant="70" id="i2a-N8-Oke"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2co-fJ-kM9" customClass="UnderLineView" customModule="Lunch" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="150" width="460.5" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="GEc-7v-E7P"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -51,7 +136,16 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="75.5" y="-186"/>
+            <connections>
+                <outlet property="addressLabel" destination="Qh9-XC-rmh" id="Vea-Su-0gM"/>
+                <outlet property="businessDateLabel" destination="fiD-Oi-1mD" id="gjL-2o-g2Z"/>
+                <outlet property="storeImageView" destination="K2d-mH-Fpe" id="QnR-bO-ZLn"/>
+                <outlet property="storeNameLabel" destination="pWb-2t-XVU" id="JvK-fR-uAL"/>
+            </connections>
+            <point key="canvasLocation" x="157.5" y="-186.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="No-Image" width="336" height="336"/>
+    </resources>
 </document>

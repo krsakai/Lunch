@@ -28,4 +28,12 @@ internal struct LunchColor {
         
         static let water   = UIColor(hex6: 0x0068B7)
     }
+    
+    struct Line {
+        static let separator = UIColor(hex6: 0x9A9A9A)
+    }
+    
+    struct Label {
+        static let weak = UIColor(hex6: 0x969696)
+    }
 }

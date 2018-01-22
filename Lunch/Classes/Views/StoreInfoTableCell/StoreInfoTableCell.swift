@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import AlamofireImage
 
-internal final class StoreInfoTableCell: UITableViewCell {
+internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     
-    static func instantiate(_ owner: AnyObject) -> StoreInfoTableCell {
+    // MARK: IBOutlet
+    @IBOutlet private weak var storeImageView: UIImageView!
+    @IBOutlet private weak var storeNameLabel: UILabel!
+    @IBOutlet private weak var addressLabel: WeakLabel!
+    @IBOutlet private weak var businessDateLabel: WeakLabel!
     
-        return StoreInfoTableCell()
+    // MARK: Property
+    private var store: Store? {
+        didSet {
+            guard let store = store else {
+                return
+            }
+            let url = URL(string: store.imageUrl)!
+            storeImageView.af_setImage(withURL: url, placeholderImage: R.image.noImage())
+            storeNameLabel.text = store.name
+            addressLabel.text = store.address
+            businessDateLabel.text = store.open + " " + store.close
+        }
     }
     
+    func setup(store: Store) {
+        self.store = store
+    }
 }

@@ -44,16 +44,6 @@
 "SideMenu.Label.LunchHistory" = "お昼履歴";
 "SideMenu.Label.Setting" = "設定";
 
-// 登録
-"Entry.HeaderLabel.Lesson" = "講義登録";
-"Entry.HeaderLabel.Event" = "イベント登録";
-"Entry.HeaderLabel.Member" = "メンバー登録";
-
-// メンバー選択
-"MemberSelection.Alert.Title.MemberRegister" = "メンバー登録";
-"MemberSelection.Alert.Message.MemberRegister" = "%@ に選択されたメンバーを追加してよろしいですか？";
-
-
 // ヘッダー
 "Header.Button.Label.UserRegist" = "登録";
 "Header.Title.Label.EventList" = "イベント";
@@ -64,24 +54,6 @@
 "Header.Title.Label.MemberSelect" = "メンバー選択";
 "Header.Button.Label.Send" = "送信";
 "Header.Button.Label.Buld" = "一括";
-
-// モード
-"Mode.Title.Label.ModeSelect" = "モード選択";
-"Mode.Button.Label.Member" = "受講者";
-"Mode.Button.Label.Organizer" = "開催者";
-"Mode.Title.Label.ThemeSelect" = "テーマ色選択";
-"Mode.Title.Label.MemberSetting" = "受講者登録設定";
-"Mode.Alert.Title.NoEntry" = "メンバー未登録";
-"Mode.Alert.Message.NoEntry" = "メンバー未登録です。登録画面よりメンバー登録を行ってください";
-"Mode.Alert.Title.Unimplemented" = "機能未実装";
-"Mode.Alert.Message.Unimplemented" = "このバージョンでの受講者モードは未実装です。最新版のアプリを確認してください";
-
-// メンバー検索
-"MemberSearch.Title.Label.MemberSearch" = "メンバー検索";
-
-// ローディング
-"Loading.Title.Label.MemberSearch" = "メンバー受付中";
-"Loading.SubTitle.Label.TapCancel" = "画面タップで検索中断";
 
 // 設定
 "Setting.Label.Email.Address" = "メール宛先";
