@@ -94,6 +94,8 @@
 		C87291F22015FC8A00B5B070 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87291F12015FC8A00B5B070 /* UITableView.swift */; };
 		C8729DBE2016857100B5B070 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87292252016854400B5B070 /* AlamofireImage.framework */; };
 		C8778F281E997BB900E336E7 /* FilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8778F271E997BB900E336E7 /* FilePath.swift */; };
+		C887E193201A407C006C6730 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E192201A407C006C6730 /* StoreDetailViewController.swift */; };
+		C887E195201A408D006C6730 /* StoreDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */; };
 		C89673931E910F7C00D67069 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89673921E910F7C00D67069 /* Array.swift */; };
 		C89673951E929ABA00D67069 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89673941E929ABA00D67069 /* SplashViewController.swift */; };
 		C896739B1E92C1B800D67069 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C896739A1E92C1B800D67069 /* Settings.bundle */; };
@@ -3259,6 +3261,8 @@
 		C8729CA82016854A00B5B070 /* ci.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci.sh; sourceTree = "<group>"; };
 		C8729CA92016854A00B5B070 /* UIColor_Hex_Swift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIColor_Hex_Swift.podspec; sourceTree = "<group>"; };
 		C8778F271E997BB900E336E7 /* FilePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePath.swift; sourceTree = "<group>"; };
+		C887E192201A407C006C6730 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
+		C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailViewController.storyboard; sourceTree = "<group>"; };
 		C89673921E910F7C00D67069 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		C89673941E929ABA00D67069 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C896739A1E92C1B800D67069 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -3461,6 +3465,7 @@
 		C863C91C1E608FA200FD75F1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C887E133201A406C006C6730 /* StoreDetail */,
 				C87291C82013E25300B5B070 /* LunchLottery */,
 				C87291CE2013E5F700B5B070 /* StoreSearch */,
 				C87291DD2014058000B5B070 /* LunchHistory */,
@@ -8262,6 +8267,15 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		C887E133201A406C006C6730 /* StoreDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C887E192201A407C006C6730 /* StoreDetailViewController.swift */,
+				C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */,
+			);
+			path = StoreDetail;
+			sourceTree = "<group>";
+		};
 		C8FEA7081E73331000503ED5 /* InputView */ = {
 			isa = PBXGroup;
 			children = (
@@ -9165,6 +9179,7 @@
 				C857083A1E8A42D200B21DE4 /* SettingViewController.storyboard in Resources */,
 				C8FEA70E1E7333EF00503ED5 /* InputView.xib in Resources */,
 				C817135F2016913A00C9BFED /* TableHeaderView.xib in Resources */,
+				C887E195201A408D006C6730 /* StoreDetailViewController.storyboard in Resources */,
 				C863C9701E608FA200FD75F1 /* LaunchScreen.storyboard in Resources */,
 				C863C9881E616FC900FD75F1 /* SideMenuViewController.storyboard in Resources */,
 				C87291E02014058100B5B070 /* LunchHistoryViewController.storyboard in Resources */,
@@ -9348,6 +9363,7 @@
 				C8FEA7141E73E86D00503ED5 /* ActionKeys.swift in Sources */,
 				C8FEA7101E73340200503ED5 /* InputView.swift in Sources */,
 				C86F61731E88DC5A00C829A0 /* EntryTrial.swift in Sources */,
+				C887E193201A407C006C6730 /* StoreDetailViewController.swift in Sources */,
 				C85C3AD41E8EEDCB00C8B468 /* String.swift in Sources */,
 				C87291B3201376E100B5B070 /* ApiManager.swift in Sources */,
 				C863C9661E608FA200FD75F1 /* DeviceModel.swift in Sources */,

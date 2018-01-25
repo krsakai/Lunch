@@ -1,7 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Store Detail View Controller-->
+        <scene sceneID="cro-qT-jyW">
+            <objects>
+                <viewController storyboardIdentifier="StoreDetailViewController" id="Poe-wH-nRD" customClass="StoreDetailViewController" customModule="Lunch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acM-L8-OBG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e28-vD-OkP" customClass="HeaderView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="L5k-jt-Few"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlF-am-0z0">
+                                <rect key="frame" x="0.0" y="71" width="375" height="571"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-KY-j0d" customClass="FooterView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="W9c-4S-WGb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DlF-am-0z0" firstAttribute="top" secondItem="e28-vD-OkP" secondAttribute="bottom" id="010-Ya-aw1"/>
+                            <constraint firstItem="DlF-am-0z0" firstAttribute="leading" secondItem="40e-bD-Arq" secondAttribute="leading" id="1Mc-Mo-I3V"/>
+                            <constraint firstItem="e28-vD-OkP" firstAttribute="leading" secondItem="40e-bD-Arq" secondAttribute="leading" id="4Ea-uf-anD"/>
+                            <constraint firstItem="PVj-KY-j0d" firstAttribute="trailing" secondItem="40e-bD-Arq" secondAttribute="trailing" id="FmG-o5-uhd"/>
+                            <constraint firstItem="e28-vD-OkP" firstAttribute="top" secondItem="acM-L8-OBG" secondAttribute="top" id="Hgh-3D-6pG"/>
+                            <constraint firstItem="PVj-KY-j0d" firstAttribute="leading" secondItem="40e-bD-Arq" secondAttribute="leading" id="Hmj-gV-NY2"/>
+                            <constraint firstItem="40e-bD-Arq" firstAttribute="trailing" secondItem="DlF-am-0z0" secondAttribute="trailing" id="POB-To-cCq"/>
+                            <constraint firstItem="PVj-KY-j0d" firstAttribute="top" secondItem="DlF-am-0z0" secondAttribute="bottom" id="g1v-cB-yFa"/>
+                            <constraint firstItem="e28-vD-OkP" firstAttribute="trailing" secondItem="40e-bD-Arq" secondAttribute="trailing" id="gIi-8T-Vd6"/>
+                            <constraint firstItem="PVj-KY-j0d" firstAttribute="bottom" secondItem="40e-bD-Arq" secondAttribute="bottom" id="iM7-7Q-KX4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="40e-bD-Arq"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="DlF-am-0z0" id="xxJ-fc-6Ja"/>
+                        <outlet property="headerView" destination="e28-vD-OkP" id="mID-I0-DXR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVq-55-xnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="188" y="104"/>
+        </scene>
+    </scenes>
 </document>

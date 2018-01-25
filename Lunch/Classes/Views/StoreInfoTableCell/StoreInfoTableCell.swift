@@ -34,4 +34,18 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     func setup(store: Store) {
         self.store = store
     }
+    
+    // MARK: IBAction
+    @IBAction private func didTapDetailButton(_ sender: Any) {
+        guard let store = store else {
+            return
+        }
+        let viewController = StoreDetailViewController.instantiate(store: store)
+        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction private func didTapMapButton(_ sender: Any) {
+        
+    }
+    
 }

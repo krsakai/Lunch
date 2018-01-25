@@ -62,8 +62,12 @@ extension HeaderViewDisplayable {
     
     func didTapHeaderButton(buttonType: HeaderButtonType) {
         switch buttonType {
-        default:
+        case .sideMenu:
             AppDelegate.sideMenu?.evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
+        case .back:
+            AppDelegate.navigation?.popViewController(animated: true)
+        default:
+            break
         }
     }
     

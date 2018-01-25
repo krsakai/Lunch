@@ -22,6 +22,7 @@ internal final class SideMenuViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        tableView.allowsSelection = true
         topLabel.text = R.string.localizable.sideMenuHeaderLabelMenuList()
     }
 
@@ -89,12 +90,8 @@ extension SideMenuViewController: UITableViewDataSource {
         return menuItems[section].count
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return menuItems.count
-    }
-
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return SideMenuViewController.defalutCellRowHeight
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

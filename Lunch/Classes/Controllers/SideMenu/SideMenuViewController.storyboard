@@ -69,8 +69,8 @@
                                         </prototypes>
                                         <sections/>
                                         <connections>
-                                            <outlet property="dataSource" destination="Aa1-FF-S4r" id="u1i-TD-teG"/>
-                                            <outlet property="delegate" destination="Aa1-FF-S4r" id="7Lw-lp-1dT"/>
+                                            <outlet property="dataSource" destination="Aa1-FF-S4r" id="246-Hr-Shl"/>
+                                            <outlet property="delegate" destination="Aa1-FF-S4r" id="VkH-bC-7ax"/>
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqQ-7w-jJu">
@@ -132,7 +132,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="tableView" destination="4FR-nJ-SAH" id="CCu-1T-Ntm"/>
+                        <outlet property="tableView" destination="4FR-nJ-SAH" id="2LK-9J-zsd"/>
                         <outlet property="topLabel" destination="58f-Yt-hw8" id="llg-MJ-yer"/>
                     </connections>
                 </viewController>
