@@ -4,15 +4,10 @@
 //
 //  Created by 酒井邦也 on 2017/03/09.
 //  Copyright © 2017年 酒井邦也. All rights reserved.
-//
+
 
 import Foundation
-import SwiftSpinner
-
-internal enum Loading {
-    case memberEntry
-    case attendanceReception
-}
+import KRProgressHUD
 
 internal class LoadingController {
     
@@ -21,27 +16,33 @@ internal class LoadingController {
     
     static let shared = LoadingController()
     
-    func show(completion: LoadingCompletion = nil) {
-        // MARK: - Reason Fontが元に戻るのでshowする時に必ず設定している
-        SwiftSpinner.setTitleFont(LunchFont.loading.title)
-        SwiftSpinner.useContainerView(AppDelegate.navigation?.view)
-        loadingCompletion = completion ?? loadingCompletion
-//        SwiftSpinner.show(R.string.localizable.loadingTitleLabelMemberSearch()).addTapHandler(
-//        { self.hide() }, subtitle: R.string.localizable.loadingSubTitleLabelTapCancel())
+    init() {
+        KRProgressHUD.set(style: .white)
+        KRProgressHUD.set(maskType: .black)
+        KRProgressHUD.set(activityIndicatorViewStyle: .color(DeviceModel.themeColor.color))
     }
     
-    func update(title: String) {
-        SwiftSpinner.setTitleFont(LunchFont.loading.title)
-        SwiftSpinner.show(title)
-        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(updateTimer(_:)), userInfo: nil, repeats: false)
+    func show() {
+        KRProgressHUD.show(withMessage: "ロード中")
     }
     
-    func hide() {
-        SwiftSpinner.hide(loadingCompletion)
-        loadingCompletion = nil
-    }
-    
-    @objc func updateTimer(_ timer: Timer) {
-        show()
+    func hide(completion: (() -> Void)? = nil) {
+        KRProgressHUD.dismiss(completion)
     }
 }
+
+protocol LoadingDisplayable {
+    func showLoading()
+    func hideLoading(completion: (() -> Void)?)
+}
+
+extension UIViewController: LoadingDisplayable {
+    func showLoading() {
+        LoadingController.shared.show()
+    }
+    
+    func hideLoading(completion: (() -> Void)? = nil) {
+        LoadingController.shared.hide(completion: completion)
+    }
+}
+

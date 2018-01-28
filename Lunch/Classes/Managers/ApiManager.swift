@@ -23,6 +23,9 @@ internal struct ApiManager {
         self.parameters.merge(extraParameters) { oldValue, newValue in
             return oldValue
         }
+        self.parameters.merge(["count": "100"]) { oldValue, newValue in
+            return oldValue
+        }
         self.parameters.merge(["key": apiInfo.apiKey]) { oldValue, newValue in
             return oldValue
         }
@@ -33,6 +36,7 @@ internal struct ApiManager {
     
     func request<T: Mappable>(success: @escaping (_ data: [T]) -> Void, fail: @escaping (_ error: Error?) -> Void) {
         Alamofire.request(apiInfo.url, method: apiInfo.method, parameters: parameters).responseJSON { response in
+            print(response.request?.url?.absoluteString)
             guard response.result.isSuccess, let value = response.result.value as? Dictionary<String, Any> else {
                 fail(response.result.error)
                 return

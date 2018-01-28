@@ -18,7 +18,7 @@ extension Mappable {
      *  fromJSON : String型 → NSDate型へ変換
      *  toJSON   : NSDate型 → String型へ変換
      */
-    func stringToDateTransform(format: AttendaceRecordFormat = .iSO8601Plus) -> TransformOf<Date, String>{
+    func stringToDateTransform(format: LunchFormat = .iSO8601Plus) -> TransformOf<Date, String>{
         
         return TransformOf<Date, String>(
             fromJSON: { dateString in

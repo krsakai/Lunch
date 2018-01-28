@@ -20,13 +20,17 @@ internal struct LunchColor {
     }
     
     struct Common {
-        static let green   = UIColor(hex6: 0x93C154)
+        static let greenRawValue    = "93C154"
+        static let green            = "93C154".color
         
-        static let red     = UIColor(hex6: 0xc70067)
+        static let redRawValue      = "c70067"
+        static let red              = "c70067".color
         
-        static let blue    = UIColor(hex6: 0x043c78)
+        static let blueRawValue     = "043c78"
+        static let blue             = "043c78".color
         
-        static let water   = UIColor(hex6: 0x0068B7)
+        static let waterRawValue    = "0068B7"
+        static let water            = "0068B7".color
     }
     
     struct Line {

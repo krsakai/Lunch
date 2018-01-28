@@ -12,6 +12,7 @@ PODS:
     - Realm (= 2.8.1)
   - SwiftCop (1.0.0)
   - SWTableViewCell (0.3.7)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - RealmSwift
   - SwiftCop
   - SWTableViewCell (~> 0.3.7)
+  - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   HSegmentControl:
@@ -42,7 +44,8 @@ SPEC CHECKSUMS:
   RealmSwift: 4764ca7657f2193c256fb032c0b123926f70dbcd
   SwiftCop: 5ae17ee59ea702b662072495588ace8540571bef
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: e89ef194cc93c43bd34850cc6de63a18ceb245f0
+PODFILE CHECKSUM: 1c3872bc53c77d5620992d13f32bca29b6928371
 
 COCOAPODS: 1.3.1

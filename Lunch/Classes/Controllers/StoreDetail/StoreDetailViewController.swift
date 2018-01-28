@@ -34,6 +34,7 @@ internal final class StoreDetailViewController: UIViewController, HeaderViewDisp
         setupHeaderView(store?.name ?? "", headerItems: HeaderItems([.back], nil))
         setupWebView()
         if let store = store, !store.url.isEmpty {
+            showLoading()
             webView.load(URLRequest(url: URL(string: store.url)!))
         }
         
@@ -51,11 +52,48 @@ internal final class StoreDetailViewController: UIViewController, HeaderViewDisp
         webView.snp.makeConstraints { make in
             make.top.right.bottom.left.equalTo(0)
         }
-        webView.uiDelegate = self
         webView.navigationDelegate = self
     }
 }
 
-extension StoreDetailViewController: WKUIDelegate, WKNavigationDelegate {
+extension StoreDetailViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hideLoading()
+    }
     
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        hideLoading() {
+            let alertMessage = AlertMessage(title: "タイトル", message: "このジャンルでよろしいですか？")
+            let alertType = AlertType.error(message: alertMessage)
+            var buttonList = [AlertButton(label: "このジャンルでお店を検索する") {
+                
+                }]
+            if !DeviceModel.isOverLunch {
+                buttonList.append(AlertButton(label: "お店は歩いて探す") {
+                    
+                })
+            }
+            buttonList.append(AlertButton(label: "選び直す"){})
+            self.showAlert(alertType: alertType, buttonList: buttonList)
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        hideLoading() {
+            let alertMessage = AlertMessage(title: "タイトル", message: "このジャンルでよろしいですか？")
+            let alertType = AlertType.error(message: alertMessage)
+            var buttonList = [AlertButton(label: "このジャンルでお店を検索する") {
+                
+                }]
+            if !DeviceModel.isOverLunch {
+                buttonList.append(AlertButton(label: "お店は歩いて探す") {
+                    
+                })
+            }
+            buttonList.append(AlertButton(label: "選び直す") {
+                
+            })
+            self.showAlert(alertType: alertType, buttonList: buttonList)
+        }
+    }
 }

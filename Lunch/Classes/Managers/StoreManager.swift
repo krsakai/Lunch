@@ -32,13 +32,11 @@ internal final class StoreManager {
         }
     }
     
-    typealias SearchStoreListDataFromCurrentLocationTask = Task<Void, [Store], Void>
     /// 現在地から検索した店舗一覧を取得する
-    var searchStoreListDataFromCurrentLocation: StoreListDataTask {
+    func searchStoreListDataFromLocation(condition: StoreSearchCondition = .locationOnly) -> StoreListDataTask {
         return StoreListDataTask { _, fulfill, reject, _ in
             LocationManager.shared.currentLocationTask.success { location in
-                let apiInfo = ApiInfo.searchStoreFromLocation(location: location)
-                self.searchStoreListData(apiInfo: apiInfo).success { storeList in
+                self.searchStoreListData(apiInfo: condition.apiInfo(location: location)).success { storeList in
                     fulfill(storeList)
                 }.failure { _ in
                     reject(())
@@ -81,7 +79,7 @@ internal final class StoreManager {
     func saveDefaultStoreList() {
         let plistPath = Bundle.main.path(forResource: "store", ofType: "plist")!
         let storeListJson = NSArray(contentsOfFile: plistPath) as! [[String : Any]]
-        let storeList: [Store] = Mapper<Store>().mapArray(JSONArray: storeListJson)!
+        let storeList: [Store] = Mapper<Store>().mapArray(JSONArray: storeListJson)
         saveStoreListToRealm(storeList)
     }
 }

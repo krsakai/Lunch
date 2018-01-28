@@ -15,22 +15,40 @@
             <rect key="frame" x="0.0" y="0.0" width="365" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUe-Vo-zwf">
-                    <rect key="frame" x="15" y="14" width="35.5" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="候補ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUe-Vo-zwf">
+                    <rect key="frame" x="15" y="12.5" width="86" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-eB-drE">
+                    <rect key="frame" x="270" y="12" width="80" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="j3M-2k-zON"/>
+                        <constraint firstAttribute="width" constant="80" id="s1y-42-deZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="tableHeaderButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="EQS-ML-Wmo"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="VUe-Vo-zwf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="0X0-T2-c5Q"/>
                 <constraint firstItem="VUe-Vo-zwf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="P0p-Rt-Bvu"/>
+                <constraint firstItem="6xd-eB-drE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TmX-JR-52s"/>
+                <constraint firstItem="VUe-Vo-zwf" firstAttribute="height" secondItem="6xd-eB-drE" secondAttribute="height" id="seC-VI-pvg"/>
+                <constraint firstAttribute="trailing" secondItem="6xd-eB-drE" secondAttribute="trailing" constant="15" id="waA-28-65E"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="tableHeaderButton" destination="6xd-eB-drE" id="RNp-qk-PfF"/>
                 <outlet property="titleLabel" destination="VUe-Vo-zwf" id="Ced-2e-Clr"/>
             </connections>
             <point key="canvasLocation" x="-2.5" y="-245"/>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenreListCell" rowHeight="72" id="yZy-Bu-nDN" customClass="GenreListCell" customModule="Lunch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="72"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yZy-Bu-nDN" id="p61-C6-mAt">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VYn-xl-hB1">
+                        <rect key="frame" x="15" y="25.5" width="200" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="tgn-4o-FIq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fa-WJ-06W" customClass="UnderLineView" customModule="Lunch" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="71" width="376" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="npe-Ia-CyK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2fa-WJ-06W" secondAttribute="trailing" id="8qY-eo-9BI"/>
+                    <constraint firstItem="VYn-xl-hB1" firstAttribute="leading" secondItem="p61-C6-mAt" secondAttribute="leading" constant="15" id="GRV-az-F6E"/>
+                    <constraint firstItem="VYn-xl-hB1" firstAttribute="centerY" secondItem="p61-C6-mAt" secondAttribute="centerY" id="SZz-Um-Qz4"/>
+                    <constraint firstItem="2fa-WJ-06W" firstAttribute="leading" secondItem="p61-C6-mAt" secondAttribute="leading" id="n0A-eL-gUN"/>
+                    <constraint firstAttribute="bottom" secondItem="2fa-WJ-06W" secondAttribute="bottom" id="vY0-wq-Fvv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="genreName" destination="VYn-xl-hB1" id="Bbx-Cs-y2O"/>
+            </connections>
+            <point key="canvasLocation" x="-123" y="-5"/>
+        </tableViewCell>
+    </objects>
+</document>

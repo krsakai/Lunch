@@ -32,7 +32,7 @@ internal final class GenreManager {
     
     /// ジャンル一覧情報をRealmから取得
     func genreListDataFromRealm(predicate: NSPredicate? = nil, realm: Realm = try! Realm()) -> [Genre] {
-        let sortParameters = [SortDescriptor(keyPath: "code", ascending: true)]
+        let sortParameters = [SortDescriptor(keyPath: "genreId", ascending: true)]
         guard let predicate = predicate else {
             return Array(realm.objects(Genre.self).sorted(by: sortParameters))
         }
@@ -48,7 +48,7 @@ internal final class GenreManager {
     func saveDefaultGenreList() {
         let plistPath = Bundle.main.path(forResource: "genre", ofType: "plist")!
         let genreListJson = NSArray(contentsOfFile: plistPath) as! [[String : Any]]
-        let genreList: [Genre] = Mapper<Genre>().mapArray(JSONArray: genreListJson)!
+        let genreList: [Genre] = Mapper<Genre>().mapArray(JSONArray: genreListJson)
         saveGenreListToRealm(genreList)
     }
 }

@@ -11,8 +11,10 @@ import UIKit
 internal final class StoreSearchViewController: UIViewController, HeaderViewDisplayable {
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: IgnoreTouchTableView!
     @IBOutlet weak var headerView: HeaderView!
+    @IBOutlet weak var footerView: FooterView!
+    
     
     // MARK: - Property
     fileprivate var searchStoreList: [Store] = []
@@ -20,6 +22,12 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
     fileprivate var storeList: [[Store]] {
         return [searchStoreList, currentLocationStoreList]
     }
+    
+    internal enum StoreSearchType {
+        case keyword(String)
+        case genre(Genre)
+    }
+    var searchType: StoreSearchType?
     
     // MARK: - Initializer
     
@@ -32,7 +40,9 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
         super.viewDidLoad()
         setupHeaderView("お店検索", headerItems: HeaderItems([.sideMenu], nil))
         tableView.register(StoreInfoTableCell.self)
-        StoreManager.shared.searchStoreListDataFromCurrentLocation.success { storeList in
+        showLoading()
+        StoreManager.shared.searchStoreListDataFromLocation().success { storeList in
+            self.hideLoading()
             self.currentLocationStoreList = storeList
             self.tableView.reloadData()
         }
@@ -43,6 +53,20 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
     }
     
     // MARK: - IBAction
+    
+    @IBAction func genreSelectButtonTapped(_ sender: Any) {
+        let viewController = GenreSelectViewController.instantiate() { genre in
+            self.tableView.scrollToFirstPosition()
+            self.showLoading()
+            StoreManager.shared.searchStoreListDataFromLocation(condition: .genre(genre)).success { storeList in
+                self.hideLoading()
+                self.searchStoreList = storeList
+                self.searchType = .genre(genre)
+                self.tableView.reloadData()
+            }
+        }
+        present(viewController, animated: true, completion: nil)
+    }
     
 }
 
@@ -68,7 +92,18 @@ extension StoreSearchViewController: UITableViewDataSource {
 extension StoreSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return TableHeaderView.instantiate(owner: self, title: ["検索したお店", "現在地周辺のお店"][section])
+        var searchStoreString = ""
+        if let searchType = searchType {
+            switch searchType {
+            case .keyword(let keyword):
+                searchStoreString.append("キーワード検索：\(keyword)")
+            case .genre(let genre):
+                searchStoreString.append("ジャンル検索：\(genre.name)")
+            }
+        } else {
+            searchStoreString.append("検索したお店")
+        }
+        return TableHeaderView.instantiate(owner: self, title: [searchStoreString, "現在地周辺のお店"][section])
     }
 }
 
@@ -80,18 +115,40 @@ extension StoreSearchViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else {
             return
         }
-        StoreManager.shared.searchStoreListData(apiInfo: .searchStoreFromKeyword(keyword: keyword)).success { storeList in
+        StoreManager.shared.searchStoreListDataFromLocation(condition: .keyword(keyword)).success { storeList in
             self.searchStoreList = storeList
+            self.searchType = .keyword(keyword)
             self.tableView.reloadData()
-            
         }
         self.tableView.scrollToFirstPosition()
         view.endEditing(true)
     }
 }
 
-extension UITableView {
-    // FIXME: カスタムクラス作ったほうがいい
+// MARK: - ScreenReloadable
+
+extension StoreSearchViewController: ScreenReloadable {
+    func reloadScreen() {
+        view.layoutUpdableViews.forEach { $0.refreshLayout() }
+        tableView.reloadData()
+    }
+}
+
+internal final class GenreSelectButton: 
+UIButton {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderWidth = 1.0
+        layer.borderColor = DeviceModel.themeColor.color.cgColor
+        layer.cornerRadius = 8.0
+        setTitleColor(DeviceModel.themeColor.color, for: .normal)
+        setTitleColor(DeviceModel.themeColor.color, for: .highlighted)
+    }
+}
+
+internal final class IgnoreTouchTableView: UITableView {
+    
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
     }

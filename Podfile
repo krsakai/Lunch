@@ -7,6 +7,7 @@ pod 'RealmSwift'
 pod 'R.swift'
 pod 'SwiftCop'
 pod 'HSegmentControl', :git => 'https://github.com/krsakai/HSegmentControl.git', :branch => 'develop'
+pod 'TTTAttributedLabel'
 
 target 'Lunch' do
    pod 'CTCheckbox', '~> 0.0.5'

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 enum TagType: String {
     case open  = ""
@@ -51,6 +52,10 @@ extension String {
         }
         
         return self + "<td align=center valign=center>"
+    }
+    
+    var degree: CLLocationDegrees {
+        return NSString(string: self).doubleValue as CLLocationDegrees
     }
 }
 
@@ -118,9 +123,36 @@ extension String {
             } catch { }
         }
         var colspanList = encodingString?.replacingOccurrences(of: "\r", with: "").components(separatedBy: separator)
-        if colspanList?.last?.characters.count == 0 {
+        if colspanList?.last?.count == 0 {
             colspanList?.removeLast()
         }
         return colspanList?.map { $0.components(separatedBy: ",") }
+    }
+}
+
+extension String {
+    var hexValue: UInt32 {
+        var hexValue: UInt32 = 0
+        guard Scanner(string: self).scanHexInt32(&hexValue) else {
+            return hexValue
+        }
+        return hexValue
+    }
+    
+    var color: UIColor {
+        return UIColor(hex6: self.hexValue)
+    }
+}
+
+extension String {
+    public func split(_ length: Int) -> [String]? {
+        guard length > 0 else {
+            return nil
+        }
+        let array = self.map { "\($0)" }
+        let limit = array.count
+        return stride(from: 0, to: limit, by: length).map {
+            array[$0..<min($0.advanced(by: length), limit)].joined(separator: "")
+        }
     }
 }

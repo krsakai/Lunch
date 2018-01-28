@@ -22,7 +22,6 @@ internal final class SideMenuViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tableView.allowsSelection = true
         topLabel.text = R.string.localizable.sideMenuHeaderLabelMenuList()
     }
 
@@ -54,7 +53,7 @@ extension SideMenuViewController: UITableViewDataSource {
 
         var destinationViewController: UIViewController {
             switch self {
-            case .lunchLottery: return StoreSearchViewController.instantiate()
+            case .lunchLottery: return LunchLotteryViewController.instantiate()
             case .storeSearch: return StoreSearchViewController.instantiate()
             case .lunchHistory: return LunchHistoryViewController.instantiate()
             case .setting: return SettingViewController.instantiate()
@@ -72,10 +71,9 @@ extension SideMenuViewController: UITableViewDataSource {
             switch self {
             case .lunchLottery, .storeSearch, .lunchHistory:
                 AppDelegate.navigation?.evo_drawerController?.closeDrawer(animated: true, completion: completion)
-//                AppDelegate.navigation?.setViewControllers([destinationViewController], animated: false)
+                AppDelegate.navigation?.setViewControllers([destinationViewController], animated: false)
             case .setting:
-                break
-//                AppDelegate.navigation?.present(destinationViewController, animated: true, completion: nil)
+                AppDelegate.navigation?.present(destinationViewController, animated: true, completion: nil)
             }
         }
     }
@@ -124,13 +122,9 @@ extension SideMenuViewController {
         AppDelegate.navigation?.setViewControllers(viewControllers, animated: false)
     }
 
-//    func reloadScreen() {
-//        if mode != DeviceModel.mode {
-//            mode = DeviceModel.mode
-//            changeContentViewController()
-//        }
-//        tableView.reloadData()
-//    }
+    func reloadScreen() {
+        tableView.reloadData()
+    }
 }
 
 

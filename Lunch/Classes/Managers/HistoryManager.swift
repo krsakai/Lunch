@@ -16,17 +16,22 @@ internal final class HistoryManager {
     static let shared = HistoryManager()
     
     /** 履歴一覧情報をRealmに保存
-     - parameter historyList: 履歴一覧情報  **/
-    func saveHistoryListToRealm(_ historyList: [History]) {
+     - parameter historyList: 履歴情報  **/
+    func saveHistoryToRealm(_ history: History) {
         let realm = try! Realm()
         try! realm.write {
-            for history in historyList {
-                if let _ = realm.object(ofType: History.self, forPrimaryKey: history.id) {
-                    realm.add(history, update: true)
-                } else {
-                    realm.add(history, update: true)
-                }
+            if let _ = realm.object(ofType: History.self, forPrimaryKey: history.date) {}
+            else {
+                realm.add(history, update: true)
             }
+        }
+    }
+    
+    func canRegistHistory(_ history: History, realm: Realm = try! Realm()) -> Bool {
+        if let _ = realm.object(ofType: History.self, forPrimaryKey: history.date) {
+            return false
+        } else {
+            return true
         }
     }
     
@@ -40,8 +45,8 @@ internal final class HistoryManager {
     }
     
     /// 履歴をRealmから取得
-    func historyDataFromRealm(predicate: NSPredicate, realm: Realm = try! Realm()) -> History {
-        return realm.objects(History.self).filter(predicate).first ?? History()
+    func historyDataFromRealm(predicate: NSPredicate, realm: Realm = try! Realm()) -> History? {
+        return realm.objects(History.self).filter(predicate).first
     }
 }
 

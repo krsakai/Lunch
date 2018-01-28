@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HowToUseTableCell" id="0jY-A5-Fzg" customClass="HowToUseTableCell" customModule="Lunch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0jY-A5-Fzg" id="gNs-Oh-ESJ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vS-T2-RsI" userLabel="Genre Select Button">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <connections>
+                            <action selector="howToUseButtonTapped:" destination="0jY-A5-Fzg" eventType="touchUpInside" id="glB-H5-HbI"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使い方" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-29-jCw">
+                        <rect key="frame" x="210" y="13.5" width="150" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="qCm-XW-yxb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3vS-T2-RsI" secondAttribute="trailing" id="Dxn-V8-9y3"/>
+                    <constraint firstAttribute="trailing" secondItem="1e9-29-jCw" secondAttribute="trailing" constant="15" id="NaZ-UR-ezZ"/>
+                    <constraint firstItem="3vS-T2-RsI" firstAttribute="top" secondItem="gNs-Oh-ESJ" secondAttribute="top" id="Pab-wR-awF"/>
+                    <constraint firstItem="1e9-29-jCw" firstAttribute="centerY" secondItem="gNs-Oh-ESJ" secondAttribute="centerY" id="YeR-Wa-83h"/>
+                    <constraint firstAttribute="bottom" secondItem="3vS-T2-RsI" secondAttribute="bottom" id="gWZ-zj-D6v"/>
+                    <constraint firstItem="3vS-T2-RsI" firstAttribute="leading" secondItem="gNs-Oh-ESJ" secondAttribute="leading" id="k24-Vn-Zkz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="26" y="-54"/>
+        </tableViewCell>
+    </objects>
+</document>

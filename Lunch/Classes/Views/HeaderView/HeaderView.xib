@@ -40,8 +40,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGr-Ss-ecd" userLabel="Center View">
                                             <rect key="frame" x="0.0" y="0.0" width="397" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00p-Yh-iO5">
-                                                    <rect key="frame" x="164" y="15" width="69.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="00p-Yh-iO5">
+                                                    <rect key="frame" x="50" y="15" width="297" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -50,7 +50,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="9iT-5M-pY4"/>
+                                                <constraint firstAttribute="trailing" secondItem="00p-Yh-iO5" secondAttribute="trailing" constant="50" id="HgL-bc-tCz"/>
                                                 <constraint firstItem="00p-Yh-iO5" firstAttribute="centerY" secondItem="FGr-Ss-ecd" secondAttribute="centerY" id="JoJ-oc-g2D"/>
+                                                <constraint firstItem="00p-Yh-iO5" firstAttribute="leading" secondItem="FGr-Ss-ecd" secondAttribute="leading" constant="50" id="UxK-Yh-6am"/>
                                                 <constraint firstItem="00p-Yh-iO5" firstAttribute="centerX" secondItem="FGr-Ss-ecd" secondAttribute="centerX" id="fTu-PE-bUc"/>
                                             </constraints>
                                         </view>
@@ -110,7 +112,7 @@
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yV0-Yc-MyH" userLabel="Under Line View">
                             <rect key="frame" x="0.0" y="70" width="397" height="1"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10485338184931507" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="hOD-m6-3i3"/>
                             </constraints>

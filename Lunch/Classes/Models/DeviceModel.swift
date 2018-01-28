@@ -26,6 +26,15 @@ internal enum ThemeColor: Int {
         }
     }
     
+    var hexValue: UInt32 {
+        switch self {
+        case .red: return LunchColor.Common.redRawValue.hexValue
+        case .green: return LunchColor.Common.greenRawValue.hexValue
+        case .blue: return LunchColor.Common.blueRawValue.hexValue
+        case .water: return LunchColor.Common.waterRawValue.hexValue
+        }
+    }
+    
     var color: UIColor {
         switch self {
         case .red: return LunchColor.Common.red
@@ -41,20 +50,12 @@ internal final class DeviceModel {
 
     static let sharedModel = DeviceModel()
     
-    static let proximityUUID = UUID(uuidString: "ADAEE580-9167-46C7-B6C4-E9AB299A62DD")!
-    
-    static let beaconIdentifier = "attendance"
-    
-    static let beaconValue = (major: CLBeaconMajorValue(1), minor: CLBeaconMajorValue(1))
-    
-    static let beaconRegion = CLBeaconRegion(proximityUUID: proximityUUID, major: beaconValue.major,
-                                             minor: beaconValue.minor, identifier: beaconIdentifier)
-    
-    static let advertisementData = NSDictionary(dictionary: beaconRegion.peripheralData(withMeasuredPower: nil)) as? [String : Any]
-    
-    static var serviceUUID = CBUUID(string: "022DD1C2-E416-4703-8CA7-1E67E33FF30A")
-    
-    static var characteristicUUID = CBUUID(string: "F3D31BE0-EAD5-48AB-9E4B-F0D60047A476")
+    static var isOverLunch: Bool {
+        guard let _ = HistoryManager.shared.historyDataFromRealm(predicate: History.predicateCurrentDate) else {
+            return false
+        }
+        return true
+    }
     
     /// NSUserDefaultsのアクセスで使用するキー
     private enum UserDefaultsKey: String {
@@ -86,7 +87,7 @@ internal final class DeviceModel {
             return  SearchRange(rawValue: UserDefaults.standard.string(forKey: UserDefaultsKey.searchRadius.rawValue) ?? SearchRange.middle.rawValue) ?? SearchRange.middle
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.searchRadius.rawValue)
+            UserDefaults.standard.set(newValue.rawValue, forKey: UserDefaultsKey.searchRadius.rawValue)
         }
     }
     
@@ -111,24 +112,6 @@ internal final class DeviceModel {
         return memberId
     }
 
-    static var memberNameJp: String {
-        get {
-            return Keychain()[string: KeychainKey.MemberNameJp.rawValue] ?? ""
-        }
-        set {
-            Keychain()[string: KeychainKey.MemberNameJp.rawValue] = newValue
-        }
-    }
-    
-    static var memberNameKana: String {
-        get {
-            return Keychain()[string: KeychainKey.MemberNameKana.rawValue] ?? ""
-        }
-        set {
-            Keychain()[string: KeychainKey.MemberNameKana.rawValue] = newValue
-        }
-    }
-    
     static var memberEmail: String {
         get {
             return Keychain()[string: KeychainKey.MemberEmail.rawValue] ?? ""

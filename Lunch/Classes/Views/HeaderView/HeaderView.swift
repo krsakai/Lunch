@@ -66,6 +66,9 @@ extension HeaderViewDisplayable {
             AppDelegate.sideMenu?.evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
         case .back:
             AppDelegate.navigation?.popViewController(animated: true)
+        case .close:
+            AppDelegate.reloadScreen()
+            AppDelegate.topViewController?.dismiss(animated: true, completion: nil)
         default:
             break
         }

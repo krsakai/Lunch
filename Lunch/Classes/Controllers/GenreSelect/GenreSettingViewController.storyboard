@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Genre Setting View Controller-->
+        <scene sceneID="vAV-aI-gew">
+            <objects>
+                <viewController storyboardIdentifier="GenreSettingViewController" id="E9R-Ou-Upx" customClass="GenreSettingViewController" customModule="Lunch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sh0-3R-ZRW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILO-QV-wLl" customClass="HeaderView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="SpA-Jc-J6p"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-Zb-PcC">
+                                <rect key="frame" x="0.0" y="71" width="375" height="571"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="E9R-Ou-Upx" id="MbH-xj-RTc"/>
+                                    <outlet property="delegate" destination="E9R-Ou-Upx" id="U3c-3F-JbD"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37S-ul-sq8" customClass="FooterView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Bmp-9E-EcU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="37S-ul-sq8" firstAttribute="top" secondItem="fB5-Zb-PcC" secondAttribute="bottom" id="Pei-7k-lli"/>
+                            <constraint firstItem="fB5-Zb-PcC" firstAttribute="trailing" secondItem="9FP-3O-hXw" secondAttribute="trailing" id="PoE-4h-Oy9"/>
+                            <constraint firstItem="37S-ul-sq8" firstAttribute="trailing" secondItem="9FP-3O-hXw" secondAttribute="trailing" id="Z0C-4Q-Rhd"/>
+                            <constraint firstItem="ILO-QV-wLl" firstAttribute="top" secondItem="Sh0-3R-ZRW" secondAttribute="top" id="aR9-kY-ctx"/>
+                            <constraint firstItem="ILO-QV-wLl" firstAttribute="trailing" secondItem="9FP-3O-hXw" secondAttribute="trailing" id="fBo-RX-hQw"/>
+                            <constraint firstItem="37S-ul-sq8" firstAttribute="leading" secondItem="9FP-3O-hXw" secondAttribute="leading" id="fjU-2f-bW3"/>
+                            <constraint firstItem="ILO-QV-wLl" firstAttribute="leading" secondItem="9FP-3O-hXw" secondAttribute="leading" id="ixt-31-aRb"/>
+                            <constraint firstItem="fB5-Zb-PcC" firstAttribute="top" secondItem="ILO-QV-wLl" secondAttribute="bottom" id="k1I-kO-fOc"/>
+                            <constraint firstAttribute="bottom" secondItem="37S-ul-sq8" secondAttribute="bottom" id="osj-nU-C3C"/>
+                            <constraint firstItem="fB5-Zb-PcC" firstAttribute="leading" secondItem="9FP-3O-hXw" secondAttribute="leading" id="yA2-op-Vg3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9FP-3O-hXw"/>
+                    </view>
+                    <connections>
+                        <outlet property="footerView" destination="37S-ul-sq8" id="PYe-s0-khW"/>
+                        <outlet property="headerView" destination="ILO-QV-wLl" id="RCh-mf-QYs"/>
+                        <outlet property="tableView" destination="fB5-Zb-PcC" id="zOR-yD-Frn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ESp-mZ-by7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="53"/>
+        </scene>
+    </scenes>
+</document>

@@ -35,7 +35,7 @@ internal enum InputType {
         case .memberNameJp: return [.space, .lengthMin(1), .lengthMax(20)]
         case .memberNameKana: return [.space, .lengthMin(1), .lengthMax(20), .hiragana]
         case .lessonTitle, .eventTitle: return [.space, .lengthMin(1), .lengthMax(100)]
-        case .eventDate: return [.format(format: "^([0-9]{4}[年][.* ].*[0-9][月].*[0-9][日][.* ].*[0-9][時].*[0-9][分])$", alert: AttendaceRecordFormat.displayedYearToMin.rawValue)]
+        case .eventDate: return [.format(format: "^([0-9]{4}[年][.* ].*[0-9][月].*[0-9][日][.* ].*[0-9][時].*[0-9][分])$", alert: LunchFormat.displayedYearToMin.rawValue)]
         }
     }
     

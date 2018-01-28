@@ -20,24 +20,166 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqX-FT-oAU" customClass="HeaderView" customModule="Lunch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="zc6-zk-g6B"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="agl-Wt-QA7">
+                                <rect key="frame" x="0.0" y="71" width="375" height="571"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFy-kD-8Dk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日のお昼は登録済みです" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKR-Kt-XIw">
+                                                <rect key="frame" x="101.5" y="4.5" width="171.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="IoY-rg-b0m"/>
+                                            <constraint firstItem="JKR-Kt-XIw" firstAttribute="centerX" secondItem="GFy-kD-8Dk" secondAttribute="centerX" id="NI5-Zp-7ce"/>
+                                            <constraint firstItem="JKR-Kt-XIw" firstAttribute="centerY" secondItem="GFy-kD-8Dk" secondAttribute="centerY" id="lc6-wD-3eZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqQ-8o-ds4" customClass="ThemeColorView" customModule="Lunch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="25" width="375" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="候補シャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qo-ns-Svv">
+                                                <rect key="frame" x="15" y="6.5" width="86" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJx-dI-4hO" customClass="TableHeaderButton" customModule="Lunch" customModuleProvider="target">
+                                                <rect key="frame" x="280" y="5" width="80" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="9TD-9W-3HE"/>
+                                                    <constraint firstAttribute="width" constant="80" id="F1S-NT-EdP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="編集する">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="genreEditButtonTapped:" destination="6lH-R5-R7d" eventType="touchUpInside" id="LrZ-6c-qAX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.015686274509803921" green="0.23529411764705882" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="6Qo-ns-Svv" firstAttribute="leading" secondItem="hqQ-8o-ds4" secondAttribute="leading" constant="15" id="S6Q-sf-jZV"/>
+                                            <constraint firstAttribute="trailing" secondItem="EJx-dI-4hO" secondAttribute="trailing" constant="15" id="dN6-GW-wNr"/>
+                                            <constraint firstItem="6Qo-ns-Svv" firstAttribute="centerY" secondItem="hqQ-8o-ds4" secondAttribute="centerY" id="gRk-f4-40E"/>
+                                            <constraint firstAttribute="height" constant="30" id="izl-HO-IDm"/>
+                                            <constraint firstItem="EJx-dI-4hO" firstAttribute="centerY" secondItem="hqQ-8o-ds4" secondAttribute="centerY" id="q2h-Eb-T6Q"/>
+                                        </constraints>
+                                    </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zL6-CZ-njj">
+                                        <rect key="frame" x="0.0" y="55" width="375" height="466"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="9JD-mJ-up5">
+                                            <size key="itemSize" width="75" height="44"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GenreListCollectionCell" id="0SB-If-kVB" customClass="GenreListCollectionCell" customModule="Lunch" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="75" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Erf-0z-z0s">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Erf-0z-z0s" secondAttribute="bottom" id="7AC-K5-umJ"/>
+                                                    <constraint firstItem="Erf-0z-z0s" firstAttribute="top" secondItem="0SB-If-kVB" secondAttribute="top" id="8zB-8w-sGy"/>
+                                                    <constraint firstItem="Erf-0z-z0s" firstAttribute="leading" secondItem="0SB-If-kVB" secondAttribute="leading" id="CP0-fT-xP3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Erf-0z-z0s" secondAttribute="trailing" id="JwI-uL-vYL"/>
+                                                </constraints>
+                                                <size key="customSize" width="75" height="30"/>
+                                                <connections>
+                                                    <outlet property="genreName" destination="Erf-0z-z0s" id="2Za-v0-PdU"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="6lH-R5-R7d" id="yeN-Dv-5A9"/>
+                                            <outlet property="delegate" destination="6lH-R5-R7d" id="lgT-yU-6kw"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-YY-Ma4" customClass="ThemeColorView" customModule="Lunch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="521" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqD-Ed-b5L">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="ランダムで選ぶ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapRandomButton:" destination="6lH-R5-R7d" eventType="touchUpInside" id="Dyv-OM-geG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.015686274510000001" green="0.23529411759999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="EqD-Ed-b5L" secondAttribute="trailing" id="2Fs-Sx-Gkn"/>
+                                            <constraint firstItem="EqD-Ed-b5L" firstAttribute="leading" secondItem="v8h-YY-Ma4" secondAttribute="leading" id="AOb-h6-tqi"/>
+                                            <constraint firstAttribute="bottom" secondItem="EqD-Ed-b5L" secondAttribute="bottom" id="iii-2w-gvW"/>
+                                            <constraint firstItem="EqD-Ed-b5L" firstAttribute="top" secondItem="v8h-YY-Ma4" secondAttribute="top" id="me1-oN-FRQ"/>
+                                            <constraint firstAttribute="height" constant="50" id="uyN-c8-I09"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0kW-lt-ULw" customClass="FooterView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="nPX-M4-2jZ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="agl-Wt-QA7" firstAttribute="leading" secondItem="rhc-BG-ptt" secondAttribute="leading" id="3JG-VH-9R7"/>
+                            <constraint firstItem="agl-Wt-QA7" firstAttribute="top" secondItem="EqX-FT-oAU" secondAttribute="bottom" id="8t5-7S-PVO"/>
+                            <constraint firstItem="0kW-lt-ULw" firstAttribute="top" secondItem="agl-Wt-QA7" secondAttribute="bottom" id="Xcl-GS-NMp"/>
+                            <constraint firstItem="0kW-lt-ULw" firstAttribute="trailing" secondItem="rhc-BG-ptt" secondAttribute="trailing" id="g9a-t9-Tco"/>
                             <constraint firstItem="rhc-BG-ptt" firstAttribute="top" secondItem="EqX-FT-oAU" secondAttribute="bottom" constant="-51" id="h4o-KO-Q3f"/>
+                            <constraint firstItem="0kW-lt-ULw" firstAttribute="leading" secondItem="rhc-BG-ptt" secondAttribute="leading" id="ifU-FC-gNP"/>
                             <constraint firstItem="EqX-FT-oAU" firstAttribute="leading" secondItem="rhc-BG-ptt" secondAttribute="leading" id="lm7-DR-dYb"/>
                             <constraint firstItem="EqX-FT-oAU" firstAttribute="trailing" secondItem="rhc-BG-ptt" secondAttribute="trailing" id="mX4-K1-hn0"/>
+                            <constraint firstItem="0kW-lt-ULw" firstAttribute="bottom" secondItem="rhc-BG-ptt" secondAttribute="bottom" id="mda-fP-XZE"/>
+                            <constraint firstItem="agl-Wt-QA7" firstAttribute="trailing" secondItem="rhc-BG-ptt" secondAttribute="trailing" id="pit-H8-dWH"/>
                             <constraint firstItem="EqX-FT-oAU" firstAttribute="top" secondItem="2NX-L1-GxD" secondAttribute="top" id="ywD-rw-4y3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rhc-BG-ptt"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="zL6-CZ-njj" id="ajT-nM-GJO"/>
+                        <outlet property="completionLunchView" destination="GFy-kD-8Dk" id="P1E-XF-Tdt"/>
+                        <outlet property="footerView" destination="0kW-lt-ULw" id="UNI-m1-tGw"/>
                         <outlet property="headerView" destination="EqX-FT-oAU" id="Osp-NO-Yxv"/>
+                        <outlet property="stackView" destination="agl-Wt-QA7" id="OaX-9E-yLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0v-wG-vVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="136"/>
+            <point key="canvasLocation" x="100" y="135.38230884557723"/>
         </scene>
     </scenes>
 </document>

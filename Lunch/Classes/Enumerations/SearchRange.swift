@@ -14,4 +14,14 @@ internal enum SearchRange: String {
     case middle = "3"
     case large  = "4"
     case huge   = "5"
+    
+    var title: String {
+        switch self {
+        case .tiny:  return "300m"
+        case .small: return  "500m"
+        case .middle: return "1km"
+        case .large: return "2km"
+        case .huge: return "3km"
+        }
+    }
 }

@@ -14,6 +14,7 @@ internal enum HeaderButtonType {
     case close      // 閉じる
     case back       // 戻る
     case add        // 追加
+    case bulk       // 一括
     
     var image: UIImage? {
         switch self {
@@ -36,29 +37,16 @@ internal enum HeaderButtonType {
     var title: String? {
         switch self {
         case .add   : return R.string.localizable.commonLabelPlus()
+        case .bulk  : return "一括"
         default: return nil
         }
     }
     
     var titleFont: UIFont {
-        return LunchFont.HeaderButton.add
+        return LunchFont.HeaderButton.regist
     }
     
     var tintColor: UIColor {
         return LunchColor.HeaderButton.add
-    }
-    
-    var actionKey: String {
-        switch self {
-        case .sideMenu:     return "SideMenu"
-        case .close:        return "Close"
-        case .back:         return "Back"
-        case .add:          return "Add"
-        default: return ""
-        }
-    }
-    
-    func buttonAction(targetView: UIView) -> (() -> Void)? {
-        return nil
     }
 }

@@ -50,6 +50,10 @@ extension AppDelegate {
         return drawer?.leftDrawerViewController as? SideMenuViewController
     }
     
+    static var topViewController: UIViewController? {
+        return UIApplication.topViewController()
+    }
+    
     static func reloadScreen() {
 //        AppDelegate.sideMenu?.reloadScreen()
         
@@ -118,13 +122,25 @@ internal protocol LayoutUpdable {
 }
 
 extension LayoutUpdable where Self: UIView {
-    func refreshLayout() {}
+    func refreshLayout() {
+        backgroundColor = DeviceModel.themeColor.color
+    }
+}
+
+internal class ThemeColorView: UIView, LayoutUpdable {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backgroundColor = DeviceModel.themeColor.color
+    }
+}
+
+extension UIView {
+    var layoutUpdableViews: [LayoutUpdable] {
+        return subviews.flatMap {  $0 as? LayoutUpdable }
+    }
 }
 
 internal protocol ScreenReloadable {
     func reloadScreen()
-}
-
-extension ScreenReloadable where Self: UIViewController {
-    func reloadScreen() {}
 }

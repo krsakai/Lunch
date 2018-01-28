@@ -10,5 +10,6 @@
 #define objc_headers_h
 
 #import "SWTableViewCell.h"
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 #endif /* objc_headers_h */

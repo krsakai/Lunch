@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Result View Controller-->
+        <scene sceneID="CTh-fF-Tap">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="jYj-e1-FUZ" customClass="ResultViewController" customModule="Lunch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcN-WP-DFT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="La2-B1-LAv" customClass="HeaderView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="nWS-hB-KTH"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9y7-Pk-11P">
+                                <rect key="frame" x="0.0" y="71" width="375" height="571"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jYj-e1-FUZ" id="voJ-I0-ceq"/>
+                                    <outlet property="delegate" destination="jYj-e1-FUZ" id="xD0-dG-O86"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiJ-Ij-b2s" customClass="FooterView" customModule="Lunch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="cSu-j7-B6M"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="La2-B1-LAv" firstAttribute="trailing" secondItem="2Rg-ZZ-2x5" secondAttribute="trailing" id="Ot2-2y-EEc"/>
+                            <constraint firstItem="GiJ-Ij-b2s" firstAttribute="top" secondItem="9y7-Pk-11P" secondAttribute="bottom" id="X6e-GN-nwn"/>
+                            <constraint firstItem="GiJ-Ij-b2s" firstAttribute="leading" secondItem="2Rg-ZZ-2x5" secondAttribute="leading" id="YA5-n4-Sxn"/>
+                            <constraint firstItem="La2-B1-LAv" firstAttribute="top" secondItem="gcN-WP-DFT" secondAttribute="top" id="YQL-VI-h9l"/>
+                            <constraint firstItem="9y7-Pk-11P" firstAttribute="top" secondItem="La2-B1-LAv" secondAttribute="bottom" id="abo-eh-F7c"/>
+                            <constraint firstItem="9y7-Pk-11P" firstAttribute="leading" secondItem="2Rg-ZZ-2x5" secondAttribute="leading" id="bYh-DN-wLX"/>
+                            <constraint firstAttribute="trailing" secondItem="GiJ-Ij-b2s" secondAttribute="trailing" id="eJQ-n7-uo8"/>
+                            <constraint firstItem="La2-B1-LAv" firstAttribute="leading" secondItem="2Rg-ZZ-2x5" secondAttribute="leading" id="fut-cg-Hw7"/>
+                            <constraint firstItem="2Rg-ZZ-2x5" firstAttribute="trailing" secondItem="9y7-Pk-11P" secondAttribute="trailing" id="gpe-zz-xEL"/>
+                            <constraint firstItem="2Rg-ZZ-2x5" firstAttribute="bottom" secondItem="GiJ-Ij-b2s" secondAttribute="bottom" id="wcW-s0-yrT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Rg-ZZ-2x5"/>
+                    </view>
+                    <connections>
+                        <outlet property="footerView" destination="GiJ-Ij-b2s" id="0Ys-Du-IeH"/>
+                        <outlet property="headerView" destination="La2-B1-LAv" id="S9s-Py-0D3"/>
+                        <outlet property="tableView" destination="9y7-Pk-11P" id="K9d-BM-wKf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCs-yi-1hZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="49.925037481259373"/>
+        </scene>
+    </scenes>
+</document>

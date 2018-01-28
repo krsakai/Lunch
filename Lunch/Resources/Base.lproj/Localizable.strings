@@ -39,7 +39,7 @@
 
 // サイドメニュー
 "SideMenu.HeaderLabel.MenuList" = "メニュー";
-"SideMenu.Label.LunchLottery" = "お昼抽選";
+"SideMenu.Label.LunchLottery" = "今日のお昼";
 "SideMenu.Label.StoreSearch" = "お店検索";
 "SideMenu.Label.LunchHistory" = "お昼履歴";
 "SideMenu.Label.Setting" = "設定";

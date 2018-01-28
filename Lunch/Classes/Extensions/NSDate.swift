@@ -11,7 +11,7 @@ import SwiftDate
 
 internal let NSDateZero = Date(timeIntervalSince1970: 0)
 
-internal enum AttendaceRecordFormat: String {
+internal enum LunchFormat: String {
     // ラベルなどで主に使われるフォーマット
     // 年から始まる場合、月日時はゼロパディング
     case yearToDay    = "yyyy/MM/dd"
@@ -50,12 +50,12 @@ internal extension String {
     var dateFromDisplayedFormat: Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = AttendaceRecordFormat.displayedYearToMin.rawValue
+        dateFormatter.dateFormat = LunchFormat.displayedYearToMin.rawValue
         return dateFormatter.date(from: self) ?? NSDateZero
     }
     
     /// 表示用文字からのNSDate変換
-    func dateFromDisplayedFormat(format: AttendaceRecordFormat) -> Date {
+    func dateFromDisplayedFormat(format: LunchFormat) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = format.rawValue
@@ -65,7 +65,7 @@ internal extension String {
     var dateFromFileFormat: Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = AttendaceRecordFormat.fileDataYearToMin.rawValue
+        dateFormatter.dateFormat = LunchFormat.fileDataYearToMin.rawValue
         return dateFormatter.date(from: self) ?? NSDateZero
     }
 }
@@ -73,7 +73,7 @@ internal extension String {
 internal extension Date {
     
     /// 形式指定のNSDate変換
-    static func dateFromString(string: String, format: AttendaceRecordFormat) -> Date {
+    static func dateFromString(string: String, format: LunchFormat) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = format.rawValue
@@ -81,7 +81,7 @@ internal extension Date {
     }
     
     /// 形式指定のString変換
-    func stringFromDate(format: AttendaceRecordFormat) -> String {
+    func stringFromDate(format: LunchFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = format.rawValue
@@ -92,7 +92,7 @@ internal extension Date {
     var stringToDisplayedFormat: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = AttendaceRecordFormat.displayedYearToMin.rawValue
+        dateFormatter.dateFormat = LunchFormat.displayedYearToMin.rawValue
         return dateFormatter.string(from: self)
     }
     

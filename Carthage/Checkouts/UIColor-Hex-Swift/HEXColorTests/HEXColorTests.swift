@@ -296,11 +296,52 @@ class HEXColorTests: XCTestCase {
     // MARK: - Convert argb string to rgba string
     
     func testArgb2rgba() {
-        let rgba = "#2468".argb2rgba()
-        XCTAssertEqual("#4682", rgba)
+        if let _ = "2468".argb2rgba() {} else  {
+            XCTAssertTrue(true)
+        }
+        if let _ = "22446688".argb2rgba() {} else  {
+            XCTAssertTrue(true)
+        }
+        if let _ = "#468".argb2rgba() {} else  {
+            XCTAssertTrue(true)
+        }
+        if let rgba = "#2468".argb2rgba() {
+            XCTAssertEqual("#4682", rgba)
+            let color = UIColor(rgba)
+            XCTAssertEqual(color, UIColor("#4682"))
+        }
         
-        let rrggbbaa = "#22446688".argb2rgba()
-        XCTAssertEqual("#44668822", rrggbbaa)
+        if let rrggbbaa = "#22446688".argb2rgba() {
+            XCTAssertEqual("#44668822", rrggbbaa)
+            let color = UIColor(rrggbbaa)
+            XCTAssertEqual(color, UIColor("#44668822"))
+        }
+    }
+    
+    // MARK: - Hex string output for wide display colors
+    
+    func testWideDisplayColors() {
+        let colors = [UIColor(red: 0.1, green: -0.1, blue: 0.1, alpha: 1),
+                      UIColor(red: -0.1, green: 0.1, blue: 0.1, alpha: 1),
+                      UIColor(red: 0.1, green: 0.1, blue: -0.1, alpha: 1)]
+        for color in colors {
+            XCTAssertEqual("", color.hexString(false))
+            XCTAssertEqual("", color.hexString(true))
+            do {
+                let _ = try color.hexStringThrows(true)
+            } catch UIColorInputError.unableToOutputHexStringForWideDisplayColor {
+                XCTAssertTrue(true)
+            } catch {
+                XCTAssertTrue(false)
+            }
+            do {
+                let _ = try color.hexStringThrows(false)
+            } catch UIColorInputError.unableToOutputHexStringForWideDisplayColor {
+                XCTAssertTrue(true)
+            } catch {
+                XCTAssertTrue(false)
+            }
+        }
     }
 }
 
