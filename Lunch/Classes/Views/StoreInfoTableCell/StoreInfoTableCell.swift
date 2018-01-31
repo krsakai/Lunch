@@ -20,6 +20,8 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var genreView: UIView!
     @IBOutlet private weak var genreLabel: TTTAttributedLabel!
     @IBOutlet private weak var doneButton: ThemeButton!
+    @IBOutlet private weak var unknownStoreView: UIView!
+    @IBOutlet private weak var unknownGenreNameLabel: UILabel!
     
     
     // MARK: - Initialzer
@@ -29,6 +31,7 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
         self.genreLabel.verticalAlignment = .center
         let angle = CGFloat(Double.pi / 2)
         self.genreLabel.transform = CGAffineTransform(rotationAngle: angle)
+        self.selectionStyle = .none
     }
     
     // MARK: - Property
@@ -51,6 +54,13 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
         }
         genreView.backgroundColor = genre.color
         doneButton.isHidden = DeviceModel.isOverLunch || !isRegistMode
+    }
+    
+    func setupUnknownStore(genre: Genre) {
+        unknownStoreView.isHidden = false
+        unknownStoreView.backgroundColor = genre.color
+        unknownGenreNameLabel.text = genre.name
+        unknownGenreNameLabel.textColor = genre.textColor
     }
     
     // MARK: - IBAction

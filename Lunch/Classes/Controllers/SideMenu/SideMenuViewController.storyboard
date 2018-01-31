@@ -41,11 +41,26 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-2p-F6j" customClass="TableHeaderButton" customModule="Lunch" customModuleProvider="target">
+                                                <rect key="frame" x="280" y="35" width="80" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="47g-p9-9Hx"/>
+                                                    <constraint firstAttribute="height" constant="30" id="HRU-JS-m1b"/>
+                                                </constraints>
+                                                <state key="normal" title="位置更新">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="locationUpdateButtonTapped:" destination="Aa1-FF-S4r" eventType="touchUpInside" id="rRz-SI-Hg7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="7yM-h1-WsI" firstAttribute="leading" secondItem="OeO-zj-e3B" secondAttribute="leading" id="EuY-5L-7cI"/>
+                                            <constraint firstItem="Yt5-2p-F6j" firstAttribute="centerY" secondItem="58f-Yt-hw8" secondAttribute="centerY" id="NIa-Mn-7mB"/>
                                             <constraint firstAttribute="trailing" secondItem="7yM-h1-WsI" secondAttribute="trailing" id="Xlc-Zd-HJB"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yt5-2p-F6j" secondAttribute="trailing" constant="15" id="dSf-wx-GTw"/>
                                             <constraint firstAttribute="bottom" secondItem="7yM-h1-WsI" secondAttribute="bottom" id="kHt-vY-Yvg"/>
                                             <constraint firstItem="58f-Yt-hw8" firstAttribute="leading" secondItem="OeO-zj-e3B" secondAttribute="leading" constant="15" id="oam-NA-82a"/>
                                             <constraint firstAttribute="height" constant="80" id="ofS-Ur-oNz"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 internal final class LunchHistoryViewController: UIViewController, HeaderViewDisplayable {
     
@@ -29,6 +30,7 @@ internal final class LunchHistoryViewController: UIViewController, HeaderViewDis
         super.viewDidLoad()
         let headerItems = HeaderItems(leftItems: [.sideMenu], rightItems: nil)
         setupHeaderView("履歴", headerItems: headerItems)
+        tableView.emptyDataSetSource = self
         tableView.register(StoreInfoTableCell.self)
         historyList = HistoryManager.shared.historyListDataFromRealm()
     }
@@ -51,7 +53,12 @@ extension LunchHistoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as StoreInfoTableCell
-        cell.setup(store: historyList[indexPath.section].store)
+        if let store = historyList[indexPath.section].store {
+            cell.setup(store: store)
+        } else {
+            cell.setupUnknownStore(genre: historyList[indexPath.row].genre)
+        }
+        
         return cell
     }
 }
@@ -62,6 +69,25 @@ extension LunchHistoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return TableHeaderView.instantiate(owner: self, title: historyList[section].date)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let store = historyList[indexPath.row].store else {
+            return
+        }
+        let viewController = StoreDetailViewController.instantiate(store: store)
+        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - DZNEmptyDataSet
+
+extension LunchHistoryViewController: DZNEmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "表示できるデータがありません"
+        let font = UIFont.systemFont(ofSize: 16)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: DeviceModel.themeColor.color]
+        return NSAttributedString(string: text, attributes: attributes)
     }
 }
 

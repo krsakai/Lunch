@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 internal final class StoreSearchViewController: UIViewController, HeaderViewDisplayable {
     
@@ -39,17 +40,44 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHeaderView("お店検索", headerItems: HeaderItems([.sideMenu], nil))
+        tableView.emptyDataSetSource = self
         tableView.register(StoreInfoTableCell.self)
         showLoading()
         StoreManager.shared.searchStoreListDataFromLocation().success { storeList in
             self.hideLoading()
             self.currentLocationStoreList = storeList
             self.tableView.reloadData()
+        }.failure { error in
+            guard let error = error.error else {
+                return
+            }
+            let alertMessage = AlertMessage(title: error.title, message: error.message)
+            let alertType = AlertType.error(message: alertMessage)
+            let buttonList = [AlertButton(label: "OK") { }]
+            self.hideLoading() {
+                self.showAlert(alertType: alertType, buttonList: buttonList)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openKeyboardTap), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+    }
+    
+    @objc func hideKeyboardTap() {
+        view.endEditing(true)
+        if let gestures = view.gestureRecognizers {
+            gestures.forEach { gesture in
+                if gesture.isKind(of: UITapGestureRecognizer.self) {
+                    view.removeGestureRecognizer(gesture)
+                }
+            }
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+    @objc func openKeyboardTap() {
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardTap))
+        hideTap.numberOfTapsRequired = 1
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(hideTap)
     }
     
     // MARK: - IBAction
@@ -63,6 +91,16 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
                 self.searchStoreList = storeList
                 self.searchType = .genre(genre)
                 self.tableView.reloadData()
+            }.failure { error in
+                guard let error = error.error else {
+                    return
+                }
+                let alertMessage = AlertMessage(title: error.title, message: error.message)
+                let alertType = AlertType.error(message: alertMessage)
+                let buttonList = [AlertButton(label: "OK") { }]
+                self.hideLoading() {
+                    self.showAlert(alertType: alertType, buttonList: buttonList)
+                }
             }
         }
         present(viewController, animated: true, completion: nil)
@@ -105,7 +143,24 @@ extension StoreSearchViewController: UITableViewDelegate {
         }
         return TableHeaderView.instantiate(owner: self, title: [searchStoreString, "現在地周辺のお店"][section])
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = StoreDetailViewController.instantiate(store: storeList[indexPath.section][indexPath.row])
+        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+    }
 }
+
+// MARK: - DZNEmptyDataSet
+
+extension StoreSearchViewController: DZNEmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "表示できるデータがありません"
+        let font = UIFont.systemFont(ofSize: 16)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: DeviceModel.themeColor.color]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
+
 
 // MARK: - UISearchBarDelegate
 
@@ -115,13 +170,26 @@ extension StoreSearchViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else {
             return
         }
+        showLoading()
         StoreManager.shared.searchStoreListDataFromLocation(condition: .keyword(keyword)).success { storeList in
+            self.hideLoading()
             self.searchStoreList = storeList
             self.searchType = .keyword(keyword)
             self.tableView.reloadData()
+        }.failure { error in
+            guard let error = error.error else {
+                return
+            }
+            let alertMessage = AlertMessage(title: error.title, message: error.message)
+            let alertType = AlertType.error(message: alertMessage)
+            let buttonList = [AlertButton(label: "OK") { }]
+            self.hideLoading() {
+                self.showAlert(alertType: alertType, buttonList: buttonList)
+            }
+        }.then { _, _ in
+            self.hideLoading()
         }
         self.tableView.scrollToFirstPosition()
-        view.endEditing(true)
     }
 }
 
@@ -134,8 +202,7 @@ extension StoreSearchViewController: ScreenReloadable {
     }
 }
 
-internal final class GenreSelectButton: 
-UIButton {
+internal final class GenreSelectButton: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -148,10 +215,6 @@ UIButton {
 }
 
 internal final class IgnoreTouchTableView: UITableView {
-    
-    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.next?.touchesBegan(touches, with: event)
-    }
     
     func scrollToFirstPosition() {
         self.setContentOffset(CGPoint(x: 0, y: -self.contentInset.top), animated: false)

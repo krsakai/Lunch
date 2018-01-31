@@ -16,7 +16,7 @@ internal final class LocationManager: NSObject  {
     fileprivate var locationManager: CLLocationManager?
     
     fileprivate var fulfill: ((CLLocation) -> Void)?
-    fileprivate var reject: (() -> Void)?
+    fileprivate var reject: ((LunchError) -> Void)?
     
     func setup() {
         locationManager = CLLocationManager()
@@ -29,12 +29,16 @@ internal final class LocationManager: NSObject  {
         reject = nil
     }
     
-    typealias CurrentLocationTask = Task<Void, CLLocation, Void>
-    var currentLocationTask: CurrentLocationTask {
+    typealias CurrentLocationTask = Task<Void, CLLocation, LunchError>
+    func currentLocationTask(isForce: Bool = false) -> CurrentLocationTask {
         return CurrentLocationTask { _, fulfill, reject, _ in
-            self.fulfill = fulfill
-            self.reject = reject
-            self.locationManager?.requestLocation()
+            if let location = DeviceModel.currentLocation,  !DeviceModel.searchLocationDateTime.isExpied(), !isForce {
+                fulfill(location)
+            } else {
+                self.fulfill = fulfill
+                self.reject = reject
+                self.locationManager?.requestLocation()
+            }
         }
     }
 }
@@ -56,8 +60,10 @@ extension LocationManager: CLLocationManagerDelegate {
     /// 位置情報の取得時
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.isEmpty  {
-            reject?()
+            reject?(.location)
         } else {
+            DeviceModel.currentLocation = locations[0]
+            DeviceModel.searchLocationDateTime = Date()
             fulfill?(locations[0])
         }
         reset()
@@ -65,7 +71,7 @@ extension LocationManager: CLLocationManagerDelegate {
     
     /// 位置情報の取得失敗時
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        reject?()
+        reject?(.location)
         reset()
     }
 }

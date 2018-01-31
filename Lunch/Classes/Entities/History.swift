@@ -15,8 +15,12 @@ internal final class History: Object {
     @objc dynamic fileprivate(set) var date         = ""        // 日付
     @objc dynamic fileprivate(set) var genreCode    = ""        // ジャンルコード
     
-    var store: Store {
+    var store: Store? {
         return StoreManager.shared.storeDataFromRealm(predicate: Store.predicate(storeId: storeId))
+    }
+    
+    var genre: Genre {
+        return GenreManager.shared.genreDataFromRealm(predicate: Genre.predicate(code: genreCode))
     }
     
     // MARK: - Override

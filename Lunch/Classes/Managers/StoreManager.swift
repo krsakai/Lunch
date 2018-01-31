@@ -10,24 +10,25 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 import SwiftTask
+import CoreLocation
 
 internal final class StoreManager {
     
     /// シングルトンインスタンス
     static let shared = StoreManager()
     
-    typealias StoreListDataTask = Task<Void, [Store], Void>
+    typealias StoreListDataTask = Task<Void, [Store], LunchError>
     /// 検索店舗一覧を保存・取得する
-    func searchStoreListData(apiInfo: ApiInfo) -> StoreListDataTask {
+    private func searchStoreListData(apiInfo: ApiInfo) -> StoreListDataTask {
         return StoreListDataTask { _, fulfill, reject, _ in
             ApiManager(apiInfo: apiInfo).request(success: { [weak self] (storeList: [Store])  in
                 guard let weakSelf = self else {
-                    return reject(())
+                    return reject(LunchError.network)
                 }
                 weakSelf.saveStoreListToRealm(storeList)
                 fulfill(storeList)
             }, fail: { error in
-                return reject(())
+                reject(LunchError.network)
             })
         }
     }
@@ -35,14 +36,12 @@ internal final class StoreManager {
     /// 現在地から検索した店舗一覧を取得する
     func searchStoreListDataFromLocation(condition: StoreSearchCondition = .locationOnly) -> StoreListDataTask {
         return StoreListDataTask { _, fulfill, reject, _ in
-            LocationManager.shared.currentLocationTask.success { location in
+            LocationManager.shared.currentLocationTask().success { location in
                 self.searchStoreListData(apiInfo: condition.apiInfo(location: location)).success { storeList in
                     fulfill(storeList)
                 }.failure { _ in
-                    reject(())
+                    reject(LunchError.network)
                 }
-            }.failure { _ in
-               reject(())
             }
         }
     }
@@ -71,8 +70,8 @@ internal final class StoreManager {
     }
     
     /// 店舗をRealmから取得
-    func storeDataFromRealm(predicate: NSPredicate, realm: Realm = try! Realm()) -> Store {
-        return realm.objects(Store.self).filter(predicate).first ?? Store()
+    func storeDataFromRealm(predicate: NSPredicate, realm: Realm = try! Realm()) -> Store? {
+        return realm.objects(Store.self).filter(predicate).first
     }
     
     /// 店舗マスタを保存

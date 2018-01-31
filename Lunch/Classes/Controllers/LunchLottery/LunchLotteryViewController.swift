@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 internal final class LunchLotteryViewController: UIViewController, HeaderViewDisplayable {
     
@@ -17,11 +18,16 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var completionLunchView: UIView!
-    
+    @IBOutlet weak var randomButton: UIButton!
     
     // MARK: - Property
     
-    fileprivate var genreList: [Genre] = []
+    fileprivate var genreList: [Genre] = [] {
+        didSet {
+            randomButton.isEnabled = !genreList.isEmpty
+            randomButton.alpha = genreList.isEmpty ? 0.3 : 1.0
+        }
+    }
     
     // MARK: - Initializer
     
@@ -37,6 +43,7 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
         setupHeaderView("今日のお昼", headerItems: headerItems)
         genreList = GenreManager.shared.genreListDataFromRealm(predicate: Genre.predicate(isActive: true))
         completionLunchView.isHidden = !DeviceModel.isOverLunch
+        collectionView.emptyDataSetSource = self
     }
     
     // MARK: - IBAction
@@ -51,6 +58,9 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
     }
     
     @IBAction func didTapRandomButton(_ sender: Any) {
+        guard !genreList.isEmpty else {
+            return
+        }
         let genre = genreList.randomItem
         let alertMessage = AlertMessage(title: genre.name, message: "このジャンルでよろしいですか？")
         let alertType = AlertType.info(message: alertMessage)
@@ -60,7 +70,9 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
         }]
         if !DeviceModel.isOverLunch {
             buttonList.append(AlertButton(label: "お店は歩いて探す") {
-                
+                HistoryManager.shared.saveHistoryToRealm(History(genre: genre))
+                let viewController = LunchHistoryViewController.instantiate()
+                AppDelegate.navigation?.setViewControllers([viewController], animated: false)
             })
         }
         buttonList.append(AlertButton(label: "選び直す"){})
@@ -89,6 +101,16 @@ extension LunchLotteryViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - DZNEmptyDataSet
+
+extension LunchLotteryViewController: DZNEmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "表示できるデータがありません"
+        let font = UIFont.systemFont(ofSize: 16)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: DeviceModel.themeColor.color]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
 
 // MARK: - ScreenReloadable
 

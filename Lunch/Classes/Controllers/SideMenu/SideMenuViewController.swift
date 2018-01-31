@@ -30,6 +30,16 @@ internal final class SideMenuViewController: UIViewController {
     @IBAction func settingButtonAction(_ settingButton: UIButton) {
         SideMenuItem.setting.selected()
     }
+    
+    @IBAction func locationUpdateButtonTapped(_ sender: Any) {
+        let alertMessage = AlertMessage(title: "現在地情報の更新", message: "現在地情報の更新を行ってもよろしいですか？")
+        let alertType = AlertType.info(message: alertMessage)
+        let buttonList = [AlertButton(label: "OK") {
+            _ = LocationManager.shared.currentLocationTask(isForce: true)
+        }, AlertButton(label: "やめる") {}]
+        showAlert(alertType: alertType, buttonList: buttonList)
+    }
+    
 }
 
 extension SideMenuViewController: UITableViewDataSource {

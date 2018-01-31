@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 internal final class ResultViewController: UIViewController, HeaderViewDisplayable {
     
@@ -31,10 +32,23 @@ internal final class ResultViewController: UIViewController, HeaderViewDisplayab
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHeaderView("お店候補", headerItems: HeaderItems([.back], nil))
+        tableView.emptyDataSetSource = self
         tableView.register(StoreInfoTableCell.self)
+        showLoading()
         StoreManager.shared.searchStoreListDataFromLocation(condition: .genre(genre)).success { storeList in
+            self.hideLoading()
             self.storeList = storeList
             self.tableView.reloadData()
+        }.failure { error in
+            guard let error = error.error else {
+                return
+            }
+            let alertMessage = AlertMessage(title: error.title, message: error.message)
+            let alertType = AlertType.error(message: alertMessage)
+            let buttonList = [AlertButton(label: "OK") { }]
+            self.hideLoading() {
+                self.showAlert(alertType: alertType, buttonList: buttonList)
+            }
         }
     }
     
@@ -65,6 +79,23 @@ extension ResultViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return TableHeaderView.instantiate(owner: self, title: "絞り込みジャンル：" + genre.name)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = StoreDetailViewController.instantiate(store: storeList[indexPath.row])
+        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+    }
+}
+
+
+// MARK: - DZNEmptyDataSet
+
+extension ResultViewController: DZNEmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "表示できるデータがありません"
+        let font = UIFont.systemFont(ofSize: 16)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: DeviceModel.themeColor.color]
+        return NSAttributedString(string: text, attributes: attributes)
     }
 }
 

@@ -70,6 +70,12 @@ internal extension String {
     }
 }
 
+internal enum DateTerm {
+    case hour
+    case day
+    case month
+}
+
 internal extension Date {
     
     /// 形式指定のNSDate変換
@@ -105,6 +111,10 @@ internal extension Date {
         components.day = 1
         components.second = -1
         return NSCalendar.current.date(byAdding: components, to: startOfDay)
+    }
+    
+    func isExpied(term: DateTerm = .hour) -> Bool {
+        return self + 1.hour < Date()
     }
 }
 

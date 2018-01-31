@@ -60,8 +60,10 @@ internal final class DeviceModel {
     /// NSUserDefaultsのアクセスで使用するキー
     private enum UserDefaultsKey: String {
         case isFirstReadMasterData   = "IsFirstReadMasterData"
+        case currentLocation         = "CurrentLocation"
         case themeColor              = "ThemeColor"
         case searchRadius            = "SearchRadius"
+        case searchLocationDateTime  = "SearchLocationDateTime"
     }
     
     static var isFirstReadMasterData: Bool {
@@ -70,6 +72,24 @@ internal final class DeviceModel {
         } else {
             UserDefaults.standard.set(true, forKey: UserDefaultsKey.isFirstReadMasterData.rawValue)
             return false
+        }
+    }
+    
+    static var currentLocation: CLLocation? {
+        get {
+            let latitude = UserDefaults.standard.double(forKey: UserDefaultsKey.currentLocation.rawValue + "x")
+            let longitude = UserDefaults.standard.double(forKey: UserDefaultsKey.currentLocation.rawValue + "y")
+            guard latitude != 0 && longitude != 0 else {
+                return nil
+            }
+            return CLLocation(latitude: latitude, longitude: longitude)
+        }
+        set {
+            guard let location = newValue else {
+                return
+            }
+            UserDefaults.standard.set(location.coordinate.latitude, forKey: UserDefaultsKey.currentLocation.rawValue + "x")
+            UserDefaults.standard.set(location.coordinate.longitude, forKey: UserDefaultsKey.currentLocation.rawValue + "y")
         }
     }
     
@@ -88,6 +108,18 @@ internal final class DeviceModel {
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: UserDefaultsKey.searchRadius.rawValue)
+        }
+    }
+    
+    static var searchLocationDateTime: Date {
+        get {
+            guard let date = UserDefaults.standard.string(forKey: UserDefaultsKey.searchLocationDateTime.rawValue) else {
+                return NSDateZero
+            }
+            return date.dateFromDisplayedFormat(format: .noSeparatorYearToSecond)
+        }
+        set {
+            UserDefaults.standard.set(newValue.stringFromDate(format: .noSeparatorYearToSecond), forKey: UserDefaultsKey.searchLocationDateTime.rawValue)
         }
     }
     

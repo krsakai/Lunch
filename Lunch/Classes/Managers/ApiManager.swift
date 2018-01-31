@@ -14,6 +14,13 @@ import SwiftyJSON
 // API実行管理オブジェクト
 internal struct ApiManager {
     
+    static let manager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        configuration.timeoutIntervalForRequest = 5
+        return SessionManager(configuration: configuration)
+    }()
+    
     let apiInfo: ApiInfo
     var parameters: Parameters
     
@@ -35,8 +42,7 @@ internal struct ApiManager {
     }
     
     func request<T: Mappable>(success: @escaping (_ data: [T]) -> Void, fail: @escaping (_ error: Error?) -> Void) {
-        Alamofire.request(apiInfo.url, method: apiInfo.method, parameters: parameters).responseJSON { response in
-            print(response.request?.url?.absoluteString)
+        ApiManager.manager.request(apiInfo.url, method: apiInfo.method, parameters: parameters).responseJSON { response in
             guard response.result.isSuccess, let value = response.result.value as? Dictionary<String, Any> else {
                 fail(response.result.error)
                 return

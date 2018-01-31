@@ -174,6 +174,7 @@
                         <outlet property="completionLunchView" destination="GFy-kD-8Dk" id="P1E-XF-Tdt"/>
                         <outlet property="footerView" destination="0kW-lt-ULw" id="UNI-m1-tGw"/>
                         <outlet property="headerView" destination="EqX-FT-oAU" id="Osp-NO-Yxv"/>
+                        <outlet property="randomButton" destination="EqD-Ed-b5L" id="SwY-LE-FfN"/>
                         <outlet property="stackView" destination="agl-Wt-QA7" id="OaX-9E-yLH"/>
                     </connections>
                 </viewController>
