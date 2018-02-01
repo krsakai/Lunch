@@ -82,8 +82,16 @@ extension ResultViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = StoreDetailViewController.instantiate(store: storeList[indexPath.row])
-        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+        let store = self.storeList[indexPath.row]
+        AlertController.showAlert(title: "確認", message: "\(store.name) の詳細ページへ遷移してもよろしいですか？", positiveAction: {
+            if let url = URL(string: store.url), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        })
     }
 }
 

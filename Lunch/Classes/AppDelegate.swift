@@ -8,6 +8,8 @@
 
 import UIKit
 import DrawerController
+import GoogleMobileAds
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,11 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        GADMobileAds.configure(withApplicationID: AdType.banner.id)
+        FirebaseApp.configure()
         setupMasterData()
         LocationManager.shared.setup()
         window?.rootViewController = instantiateRootViewController
         
         return true
+    }
+}
+
+internal enum AdType {
+    case banner
+    
+    var id: String {
+        return "ca-app-pub-7419271952519725~6378222624"
+    }
+    
+    var adId: String {
+        return "ca-app-pub-7419271952519725/3504647270"
     }
 }
 

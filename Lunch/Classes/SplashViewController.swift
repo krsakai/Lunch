@@ -13,7 +13,7 @@ internal final class SplashViewController: UIViewController {
     
     // MARK: IBOutlet
     
-    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet weak var splashMain: UIImageView!
     
     // MARK: Property
     
@@ -22,27 +22,17 @@ internal final class SplashViewController: UIViewController {
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
-        sleep(1)
-        Task<Void, Void, Void> { _, fulfill,_, _ in
-            self.titleLabel.changeScale(duration: 0.3, scale: CGPoint(x: 1.3, y: 1.3), completion: fulfill)
-        }.success { _ in
-            return Task<Void, Void, Void> { _, fulfill,_, _ in
-                self.titleLabel.changeScale(duration: 0.3, scale: CGPoint(x: 1.0, y:1.0), completion: fulfill)
-            }
-        }.success {
-            AppDelegate.sideMenu?.changeContentViewController()
-        }
-    }
-}
-
-extension UIView {
-    
-    func changeScale(duration: TimeInterval, scale: CGPoint, completion: (() -> Void)?) {
-        UIView.animate(withDuration: duration, animations: {
-            self.transform = CGAffineTransform(scaleX: scale.x, y: scale.y)
+        // 初期化.
+        splashMain.transform = CGAffineTransform(rotationAngle: 0)
+        // アニメーションの秒数を設定.
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            self.splashMain.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }, completion: { _ in
-            completion?()
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+                self.splashMain.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                AppDelegate.sideMenu?.changeContentViewController()
+            })
         })
     }
-    
 }

@@ -13,6 +13,7 @@ internal enum Setting {
     case searchRange
     case themeColor
     case howToUse
+    case copyright
     
     var title: String {
         switch self {
@@ -20,6 +21,7 @@ internal enum Setting {
         case .searchRange: return "検索範囲 (半径)"
         case .themeColor: return "テーマ色選択"
         case .howToUse: return "使い方"
+        case .copyright: return "情報提供元"
         }
     }
     
@@ -29,6 +31,10 @@ internal enum Setting {
         case .searchRange: return SearchRangeTableCell.instantiate(owner)
         case .themeColor: return ThemeColorSelectCell.instantiate(owner)
         case .howToUse: return HowToUseTableCell.instantiate(owner)
+        case .copyright:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = " ホットペッパーグルメ"
+            return cell
         }
     }
 }
@@ -40,7 +46,7 @@ internal final class SettingViewController: UIViewController, HeaderViewDisplaya
     @IBOutlet fileprivate weak var tableView: UITableView!
     
     fileprivate var settingList: [[Setting]] {
-        return [[.genreSelect], [.searchRange], [.themeColor], [.howToUse]]
+        return [[.genreSelect], [.searchRange], [.themeColor], [.howToUse], [.copyright]]
     }
     
     // MARK: - Initializer

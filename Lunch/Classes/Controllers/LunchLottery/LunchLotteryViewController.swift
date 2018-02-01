@@ -8,6 +8,7 @@
 
 import UIKit
 import DZNEmptyDataSet
+import GoogleMobileAds
 
 internal final class LunchLotteryViewController: UIViewController, HeaderViewDisplayable {
     
@@ -19,6 +20,8 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var completionLunchView: UIView!
     @IBOutlet weak var randomButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
+    
     
     // MARK: - Property
     
@@ -44,6 +47,23 @@ internal final class LunchLotteryViewController: UIViewController, HeaderViewDis
         genreList = GenreManager.shared.genreListDataFromRealm(predicate: Genre.predicate(isActive: true))
         completionLunchView.isHidden = !DeviceModel.isOverLunch
         collectionView.emptyDataSetSource = self
+        
+        bannerView.adUnitID = AdType.banner.adId
+        bannerView.rootViewController = self
+        let request = GADRequest()
+        #if DEBUG
+            request.testDevices = [kGADSimulatorID]
+        #endif
+        bannerView.load(request)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let request = GADRequest()
+        #if DEBUG
+            request.testDevices = [kGADSimulatorID]
+        #endif
+        bannerView.load(request)
     }
     
     // MARK: - IBAction

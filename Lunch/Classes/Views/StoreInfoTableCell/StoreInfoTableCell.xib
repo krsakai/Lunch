@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="460" height="151"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8M-jI-0Fi">
-                    <rect key="frame" x="0.0" y="0.0" width="460.5" height="150"/>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8M-jI-0Fi" userLabel="Content Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="410.5" height="150"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-mH-Fpe">
                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -125,59 +125,58 @@
                                 <constraint firstAttribute="width" constant="1" id="I3h-Op-UAv"/>
                             </constraints>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="scO-sp-IxR">
-                            <rect key="frame" x="410.5" y="0.0" width="50" height="150"/>
-                            <subviews>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-vi-lz7" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="-148" width="50" height="148"/>
-                                    <state key="normal" title="詳細"/>
-                                    <connections>
-                                        <action selector="didTapDetailButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="u6P-E8-nsM"/>
-                                    </connections>
-                                </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="am6-H5-6Wx" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="Tta-HK-0xp"/>
-                                    </constraints>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kff-7v-g1M" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="1" width="50" height="148"/>
-                                    <state key="normal" title="地図"/>
-                                    <connections>
-                                        <action selector="didTapMapButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="JXo-PV-srd"/>
-                                    </connections>
-                                </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-8k-v13" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="149" width="50" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="GfE-zR-WSV"/>
-                                    </constraints>
-                                </view>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-A2-1Sa" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="150" width="50" height="148"/>
-                                    <state key="normal" title="決定"/>
-                                    <connections>
-                                        <action selector="didTapDoneButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="qyC-SH-gQ9"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="6Aa-A2-1Sa" firstAttribute="height" secondItem="Kff-7v-g1M" secondAttribute="height" id="4ka-aF-ILD"/>
-                                <constraint firstItem="tt7-vi-lz7" firstAttribute="height" secondItem="Kff-7v-g1M" secondAttribute="height" id="XBe-ZE-t51"/>
-                                <constraint firstAttribute="width" constant="50" id="i2a-N8-Oke"/>
-                                <constraint firstItem="Kff-7v-g1M" firstAttribute="height" secondItem="tt7-vi-lz7" secondAttribute="height" id="m8M-Rf-eTN"/>
-                            </constraints>
-                        </stackView>
                     </subviews>
                 </stackView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gje-m1-jIa">
-                    <rect key="frame" x="0.0" y="0.0" width="460" height="150"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="scO-sp-IxR" userLabel="Button Stack View">
+                    <rect key="frame" x="410" y="0.0" width="50" height="150"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kff-7v-g1M" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="149"/>
+                            <state key="normal" title="地図"/>
+                            <connections>
+                                <action selector="didTapMapButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="JXo-PV-srd"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-8k-v13" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="149" width="50" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="GfE-zR-WSV"/>
+                            </constraints>
+                        </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-A2-1Sa" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="150" width="50" height="149"/>
+                            <state key="normal" title="決定"/>
+                            <connections>
+                                <action selector="didTapDoneButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="qyC-SH-gQ9"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mY7-Ex-lSB" userLabel="削除" customClass="ThemeButton" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="150" width="50" height="149"/>
+                            <state key="normal" title="削除"/>
+                            <connections>
+                                <action selector="didTapDeleteButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="CoG-Po-2YK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6Aa-A2-1Sa" firstAttribute="height" secondItem="Kff-7v-g1M" secondAttribute="height" id="4ka-aF-ILD"/>
+                        <constraint firstItem="mY7-Ex-lSB" firstAttribute="height" secondItem="Kff-7v-g1M" secondAttribute="height" id="dwj-44-dMg"/>
+                        <constraint firstAttribute="width" constant="50" id="i2a-N8-Oke"/>
+                    </constraints>
+                </stackView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gje-m1-jIa">
+                    <rect key="frame" x="0.0" y="0.0" width="410.5" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHk-un-Pyb" customClass="SeapateLineView" customModule="Lunch" customModuleProvider="target">
+                            <rect key="frame" x="409.5" y="0.0" width="1" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="1hh-2x-XTO"/>
+                            </constraints>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zq-zM-5vl">
-                            <rect key="frame" x="186.5" y="64.5" width="87" height="20.5"/>
+                            <rect key="frame" x="162" y="64" width="87" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -186,7 +185,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="2zq-zM-5vl" firstAttribute="centerY" secondItem="gje-m1-jIa" secondAttribute="centerY" id="QLz-dS-uvI"/>
+                        <constraint firstItem="FHk-un-Pyb" firstAttribute="top" secondItem="gje-m1-jIa" secondAttribute="top" id="hZY-m0-QXs"/>
+                        <constraint firstAttribute="bottom" secondItem="FHk-un-Pyb" secondAttribute="bottom" id="jjd-W2-rau"/>
                         <constraint firstItem="2zq-zM-5vl" firstAttribute="centerX" secondItem="gje-m1-jIa" secondAttribute="centerX" id="pdN-LE-u4F"/>
+                        <constraint firstAttribute="trailing" secondItem="FHk-un-Pyb" secondAttribute="trailing" id="xTN-rW-Eka"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2co-fJ-kM9" customClass="UnderLineView" customModule="Lunch" customModuleProvider="target">
@@ -199,16 +201,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="scO-sp-IxR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0zT-MS-cVV"/>
+                <constraint firstItem="r8M-jI-0Fi" firstAttribute="trailing" secondItem="scO-sp-IxR" secondAttribute="leading" id="17U-bh-DGX"/>
                 <constraint firstAttribute="trailing" secondItem="2co-fJ-kM9" secondAttribute="trailing" id="5zT-1H-cxj"/>
                 <constraint firstAttribute="bottom" secondItem="2co-fJ-kM9" secondAttribute="bottom" id="8DB-HI-xOo"/>
-                <constraint firstAttribute="trailing" secondItem="gje-m1-jIa" secondAttribute="trailing" id="Fhi-BI-50B"/>
+                <constraint firstItem="gje-m1-jIa" firstAttribute="trailing" secondItem="scO-sp-IxR" secondAttribute="leading" id="8rd-Ll-29s"/>
                 <constraint firstItem="r8M-jI-0Fi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HVG-53-EFg"/>
                 <constraint firstItem="2co-fJ-kM9" firstAttribute="top" secondItem="gje-m1-jIa" secondAttribute="bottom" id="ID1-bx-zuQ"/>
                 <constraint firstItem="2co-fJ-kM9" firstAttribute="top" secondItem="r8M-jI-0Fi" secondAttribute="bottom" id="ROn-fw-m7c"/>
                 <constraint firstItem="2co-fJ-kM9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tzn-yJ-Txl"/>
                 <constraint firstItem="r8M-jI-0Fi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hdK-NY-6As"/>
+                <constraint firstAttribute="trailing" secondItem="scO-sp-IxR" secondAttribute="trailing" id="qWv-6x-Xqr"/>
                 <constraint firstItem="gje-m1-jIa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ts8-xR-4sS"/>
-                <constraint firstAttribute="trailing" secondItem="r8M-jI-0Fi" secondAttribute="trailing" id="uoK-Du-mue"/>
+                <constraint firstItem="2co-fJ-kM9" firstAttribute="top" secondItem="scO-sp-IxR" secondAttribute="bottom" id="uVe-lq-2Li"/>
                 <constraint firstItem="gje-m1-jIa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z8G-xz-apI"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -217,9 +222,11 @@
             <connections>
                 <outlet property="addressLabel" destination="Qh9-XC-rmh" id="Vea-Su-0gM"/>
                 <outlet property="businessDateLabel" destination="fiD-Oi-1mD" id="gjL-2o-g2Z"/>
+                <outlet property="deleteButton" destination="mY7-Ex-lSB" id="Vli-MC-AwN"/>
                 <outlet property="doneButton" destination="6Aa-A2-1Sa" id="vV8-4G-squ"/>
                 <outlet property="genreLabel" destination="t1F-Os-2hD" id="hxU-nz-AAx"/>
                 <outlet property="genreView" destination="bKa-dZ-x5S" id="mM6-cg-UU2"/>
+                <outlet property="mapButton" destination="Kff-7v-g1M" id="xre-nF-Dqx"/>
                 <outlet property="storeImageView" destination="K2d-mH-Fpe" id="QnR-bO-ZLn"/>
                 <outlet property="storeNameLabel" destination="pWb-2t-XVU" id="JvK-fR-uAL"/>
                 <outlet property="unknownGenreNameLabel" destination="2zq-zM-5vl" id="utu-AR-kg0"/>

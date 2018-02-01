@@ -8,11 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialBold.ttf">
-            <string>Arial-BoldMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Mfk-xg-ezg">
@@ -42,34 +37,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="7KN-fL-J39">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="7KN-fL-J39">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出席簿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vp4-rl-maI">
-                                <rect key="frame" x="147" y="318.5" width="81" height="31"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash-Main" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-9D-bnJ">
+                                <rect key="frame" x="52.5" y="233.5" width="270" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="WM9-2g-z40"/>
+                                    <constraint firstAttribute="width" constant="270" id="fLl-fL-ZJQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="u8d-9D-bnJ" firstAttribute="centerX" secondItem="RgV-40-cS2" secondAttribute="centerX" id="6WG-cX-zs2"/>
                             <constraint firstAttribute="bottom" secondItem="7KN-fL-J39" secondAttribute="bottom" id="D0o-JZ-KSs"/>
                             <constraint firstItem="7KN-fL-J39" firstAttribute="leading" secondItem="RgV-40-cS2" secondAttribute="leading" id="EsB-Ni-brY"/>
-                            <constraint firstItem="Vp4-rl-maI" firstAttribute="centerX" secondItem="RgV-40-cS2" secondAttribute="centerX" id="b3N-Zq-al9"/>
+                            <constraint firstItem="u8d-9D-bnJ" firstAttribute="centerY" secondItem="RgV-40-cS2" secondAttribute="centerY" constant="35" id="Jfn-bb-V6P"/>
                             <constraint firstAttribute="trailing" secondItem="7KN-fL-J39" secondAttribute="trailing" id="fsp-Il-7yY"/>
                             <constraint firstItem="7KN-fL-J39" firstAttribute="top" secondItem="RgV-40-cS2" secondAttribute="top" id="jAx-2a-liu"/>
-                            <constraint firstItem="Vp4-rl-maI" firstAttribute="centerY" secondItem="RgV-40-cS2" secondAttribute="centerY" id="ujN-k6-neJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hoJ-Om-gxT"/>
                     <connections>
-                        <outlet property="titleLabel" destination="Vp4-rl-maI" id="vkE-e6-2ro"/>
+                        <outlet property="splashMain" destination="u8d-9D-bnJ" id="i0X-Mo-RgW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyS-Ae-tB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="136"/>
+            <point key="canvasLocation" x="797.60000000000002" y="135.38230884557723"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gIb-c2-j0b">
@@ -127,6 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch" width="320" height="568"/>
+        <image name="Splash" width="320" height="568"/>
+        <image name="Splash-Main" width="236" height="236"/>
     </resources>
 </document>

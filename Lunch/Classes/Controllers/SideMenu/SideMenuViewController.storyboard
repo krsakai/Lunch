@@ -54,16 +54,21 @@
                                                     <action selector="locationUpdateButtonTapped:" destination="Aa1-FF-S4r" eventType="touchUpInside" id="rRz-SI-Hg7"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aUl-0P-QZB">
+                                                <rect key="frame" x="310" y="40" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="7yM-h1-WsI" firstAttribute="leading" secondItem="OeO-zj-e3B" secondAttribute="leading" id="EuY-5L-7cI"/>
+                                            <constraint firstItem="aUl-0P-QZB" firstAttribute="centerY" secondItem="Yt5-2p-F6j" secondAttribute="centerY" id="GLK-VP-ycJ"/>
                                             <constraint firstItem="Yt5-2p-F6j" firstAttribute="centerY" secondItem="58f-Yt-hw8" secondAttribute="centerY" id="NIa-Mn-7mB"/>
                                             <constraint firstAttribute="trailing" secondItem="7yM-h1-WsI" secondAttribute="trailing" id="Xlc-Zd-HJB"/>
                                             <constraint firstAttribute="trailing" secondItem="Yt5-2p-F6j" secondAttribute="trailing" constant="15" id="dSf-wx-GTw"/>
                                             <constraint firstAttribute="bottom" secondItem="7yM-h1-WsI" secondAttribute="bottom" id="kHt-vY-Yvg"/>
                                             <constraint firstItem="58f-Yt-hw8" firstAttribute="leading" secondItem="OeO-zj-e3B" secondAttribute="leading" constant="15" id="oam-NA-82a"/>
                                             <constraint firstAttribute="height" constant="80" id="ofS-Ur-oNz"/>
+                                            <constraint firstItem="aUl-0P-QZB" firstAttribute="centerX" secondItem="Yt5-2p-F6j" secondAttribute="centerX" id="rrM-py-xXI"/>
                                             <constraint firstItem="58f-Yt-hw8" firstAttribute="centerY" secondItem="OeO-zj-e3B" secondAttribute="centerY" constant="10" id="vas-v9-eQN"/>
                                         </constraints>
                                     </view>
@@ -147,6 +152,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="locationRequestButton" destination="Yt5-2p-F6j" id="of2-cD-g7d"/>
+                        <outlet property="locationRequestIndicator" destination="aUl-0P-QZB" id="qY6-4W-Ylj"/>
                         <outlet property="tableView" destination="4FR-nJ-SAH" id="2LK-9J-zsd"/>
                         <outlet property="topLabel" destination="58f-Yt-hw8" id="llg-MJ-yer"/>
                     </connections>

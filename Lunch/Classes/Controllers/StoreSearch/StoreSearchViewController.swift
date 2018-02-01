@@ -120,7 +120,7 @@ extension StoreSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as StoreInfoTableCell
-        cell.setup(store: storeList[indexPath.section][indexPath.row])
+        cell.setup(store: storeList[indexPath.section][indexPath.row], isRegistMode: true)
         return cell
     }
 }
@@ -145,8 +145,16 @@ extension StoreSearchViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = StoreDetailViewController.instantiate(store: storeList[indexPath.section][indexPath.row])
-        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+        let store = self.storeList[indexPath.section][indexPath.row]
+        AlertController.showAlert(title: "確認", message: "\(store.name) の詳細ページへ遷移してもよろしいですか？", positiveAction: {
+            if let url = URL(string: store.url), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        })
     }
 }
 

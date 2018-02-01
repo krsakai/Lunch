@@ -35,6 +35,16 @@ internal final class HistoryManager {
         }
     }
     
+    func deleteHistoryFromRealm(_ history: History) {
+        let realm = try! Realm()
+        try! realm.write {
+            if let _ = realm.object(ofType: History.self, forPrimaryKey: history.date) {
+                realm.delete(history)
+            }
+        }
+    }
+    
+    
     /// 履歴一覧情報をRealmから取得
     func historyListDataFromRealm(predicate: NSPredicate? = nil, realm: Realm = try! Realm()) -> [History] {
         let sortParameters = [SortDescriptor(keyPath: "date", ascending: false)]

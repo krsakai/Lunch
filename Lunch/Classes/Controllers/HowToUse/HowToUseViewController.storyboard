@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,32 +44,22 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-bU-wwp">
                                                 <rect key="frame" x="8" y="8" width="359" height="684"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <mutableString key="text">CSVファイルからデータを取り込む事ができます
+                                                <mutableString key="text">お昼外食をする方で毎日食べるお店を探すのが面倒な方や、いつも同じお店ばかりになってしまう方にオススメのアプリです
 
-■ 手順
-① メンバーとイベントのテンプレートファイルをアプリからメールで送ります
+■ 機能概要 及び 使い方
+○ 今日のお昼画面
+1. 今日のお昼に食べたい気分のジャンル約70種類から選択してお店を探す
 
-② テンプレートファイルのデータ入力欄に追加したいデータを入力し保存します
+2. ジャンルを編集するボタンからジャンルを絞り込んで、ランダムで選ぶボタンを押して、表示されたジャンルでお店を検索 または、ジャンルだけ決めて自分でお店を探しにいく
 
-③ 本アプリが入った端末をPCに接続します
+○ お店検索画面
+好きなキーワード 及び ジャンルでお店を絞り込み、表示された現在地から近いお店一覧の中から好きなお店を選ぶ
 
-④ iTunesを立ち上げて接続した端末のアプリケーションを選択します
+○ お昼履歴画面
+お昼履歴を確認して、最近食べたジャンルは何かを閲覧して今日のお昼のジャンルを決める
 
-⑤ 本アプリを選択して、ファイル共有の欄を確認します
-
-⑥ 作成したファイルを追加して同期します
-
-⑦ アプリを立ち上げて設定画面のデータ管理から追加したファイルを選択するとデータを取り込めます
-
-■ CSVファイルの作り方
-[ イベント.csv ] ()内が入力する箇所
-Lesson,(講義名)
-Event,タイトル,日付
-1,(イベント名),(日付：yyyy/MM/dd/HH:mm 形式)
-
-[ メンバー.csv ] ()内が入力する箇所
-Member,名前(フルネーム),ふりがな,メールアドレス
-1,(名前フルネーム),(ふりがな),(メールアドレス)</mutableString>
+○ 設定画面
+お店の検索範囲 や ジャンルの設定を行えます</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

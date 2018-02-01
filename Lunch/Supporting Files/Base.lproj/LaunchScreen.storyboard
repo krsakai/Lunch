@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,22 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="ofT-KH-Wq8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ofT-KH-Wq8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出席簿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0v-Ru-pBa">
-                                <rect key="frame" x="147" y="318.5" width="81" height="31"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="S0v-Ru-pBa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6M5-ku-q8t"/>
                             <constraint firstItem="ofT-KH-Wq8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8PO-Cu-iYd"/>
                             <constraint firstAttribute="trailing" secondItem="ofT-KH-Wq8" secondAttribute="trailing" id="GVp-5r-uWY"/>
-                            <constraint firstItem="S0v-Ru-pBa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Z37-rc-NJk"/>
                             <constraint firstAttribute="bottom" secondItem="ofT-KH-Wq8" secondAttribute="bottom" id="kNq-0L-USm"/>
                             <constraint firstItem="ofT-KH-Wq8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="vHg-vM-87b"/>
                         </constraints>
@@ -47,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch" width="320" height="568"/>
+        <image name="Splash" width="320" height="568"/>
     </resources>
 </document>

@@ -31,8 +31,10 @@ internal final class LocationManager: NSObject  {
     
     typealias CurrentLocationTask = Task<Void, CLLocation, LunchError>
     func currentLocationTask(isForce: Bool = false) -> CurrentLocationTask {
+        AppDelegate.sideMenu?.startLocationRequest()
         return CurrentLocationTask { _, fulfill, reject, _ in
             if let location = DeviceModel.currentLocation,  !DeviceModel.searchLocationDateTime.isExpied(), !isForce {
+                AppDelegate.sideMenu?.stopLocationRequest()
                 fulfill(location)
             } else {
                 self.fulfill = fulfill
@@ -66,6 +68,7 @@ extension LocationManager: CLLocationManagerDelegate {
             DeviceModel.searchLocationDateTime = Date()
             fulfill?(locations[0])
         }
+        AppDelegate.sideMenu?.stopLocationRequest()
         reset()
     }
     
@@ -73,5 +76,6 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         reject?(.location)
         reset()
+        AppDelegate.sideMenu?.stopLocationRequest()
     }
 }

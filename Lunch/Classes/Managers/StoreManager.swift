@@ -42,6 +42,8 @@ internal final class StoreManager {
                 }.failure { _ in
                     reject(LunchError.network)
                 }
+            }.failure { error, _ in
+                reject(LunchError.location)
             }
         }
     }

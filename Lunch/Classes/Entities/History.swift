@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-internal final class History: Object {
+internal final class History: Object, ClonableObject {
     
     @objc dynamic fileprivate(set) var storeId      = ""        // 店舗ID
     @objc dynamic fileprivate(set) var date         = ""        // 日付
@@ -32,6 +32,13 @@ internal final class History: Object {
     override static func indexedProperties() -> [String] {
         return ["date"]
     }
+    
+    func updateColumn(reference: History) -> History {
+        self.storeId = reference.storeId
+        self.date = reference.date
+        self.genreCode = reference.genreCode
+        return self
+    }
 }
 
 extension History {
@@ -47,6 +54,10 @@ extension History {
     
     static func predicate(storeId: String) -> NSPredicate {
         return NSPredicate(format: "storeId = %@", storeId)
+    }
+    
+    static func predicate(dateString: String) -> NSPredicate {
+        return NSPredicate(format: "date = %@", dateString)
     }
     
     static var predicateCurrentDate: NSPredicate {

@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import SWTableViewCell
 import DZNEmptyDataSet
 
-internal final class LunchHistoryViewController: UIViewController, HeaderViewDisplayable {
+protocol DeleteProtocol {
+    func deleteHistory()
+}
+
+internal final class LunchHistoryViewController: UIViewController, HeaderViewDisplayable, DeleteProtocol {
     
     // MARK: - IBOutlet
     @IBOutlet weak var headerView: HeaderView!
@@ -37,6 +42,10 @@ internal final class LunchHistoryViewController: UIViewController, HeaderViewDis
     
     // MARK: - IBAction
     
+    func deleteHistory() {
+        historyList = HistoryManager.shared.historyListDataFromRealm()
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -54,9 +63,9 @@ extension LunchHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as StoreInfoTableCell
         if let store = historyList[indexPath.section].store {
-            cell.setup(store: store)
+            cell.setup(store: store, dateString: historyList[indexPath.section].date, delegate: self)
         } else {
-            cell.setupUnknownStore(genre: historyList[indexPath.row].genre)
+            cell.setupUnknownStore(genre: historyList[indexPath.section].genre, dateString: historyList[indexPath.section].date, delegate: self)
         }
         
         return cell
@@ -75,8 +84,15 @@ extension LunchHistoryViewController: UITableViewDelegate {
         guard let store = historyList[indexPath.row].store else {
             return
         }
-        let viewController = StoreDetailViewController.instantiate(store: store)
-        AppDelegate.navigation?.pushViewController(viewController, animated: true)
+        AlertController.showAlert(title: "確認", message: "\(store.name) の詳細ページへ遷移してもよろしいですか？", positiveAction: {
+            if let url = URL(string: store.url), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        })
     }
 }
 

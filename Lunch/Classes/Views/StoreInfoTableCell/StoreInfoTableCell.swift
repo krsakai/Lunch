@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import TTTAttributedLabel
 
+// TODO: 面倒だったので全ての履歴・検索・検索結果の履歴を一つにしたしまったため分離した方がいい
 internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     
     // MARK: - IBOutlet
@@ -22,7 +23,8 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var doneButton: ThemeButton!
     @IBOutlet private weak var unknownStoreView: UIView!
     @IBOutlet private weak var unknownGenreNameLabel: UILabel!
-    
+    @IBOutlet private weak var deleteButton: ThemeButton!
+    @IBOutlet private weak var mapButton: ThemeButton!
     
     // MARK: - Initialzer
     
@@ -37,8 +39,10 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
     // MARK: - Property
     
     private var store: Store?
+    private var dateString: String?
+    private var delegate: DeleteProtocol?
     
-    func setup(store: Store, isRegistMode: Bool = false) {
+    func setup(store: Store, isRegistMode: Bool = false, dateString: String? = nil, delegate: DeleteProtocol? = nil) {
         self.store = store
         let url = URL(string: store.imageUrl)!
         storeImageView.af_setImage(withURL: url, placeholderImage: R.image.noImage())
@@ -54,24 +58,24 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
         }
         genreView.backgroundColor = genre.color
         doneButton.isHidden = DeviceModel.isOverLunch || !isRegistMode
+        self.dateString = dateString
+        deleteButton.isHidden = dateString == nil
+        self.delegate = delegate
     }
     
-    func setupUnknownStore(genre: Genre) {
+    func setupUnknownStore(genre: Genre, dateString: String? = nil, delegate: DeleteProtocol? = nil) {
+        mapButton.isHidden = true
+        doneButton.isHidden = true
         unknownStoreView.isHidden = false
         unknownStoreView.backgroundColor = genre.color
         unknownGenreNameLabel.text = genre.name
         unknownGenreNameLabel.textColor = genre.textColor
+        self.dateString = dateString
+        deleteButton.isHidden = dateString == nil
+        self.delegate = delegate
     }
     
     // MARK: - IBAction
-    
-    @IBAction private func didTapDetailButton(_ sender: Any) {
-        guard let store = store else {
-            return
-        }
-        let viewController = StoreDetailViewController.instantiate(store: store)
-        AppDelegate.navigation?.pushViewController(viewController, animated: true)
-    }
     
     @IBAction private func didTapMapButton(_ sender: Any) {
         guard let store = store else {
@@ -101,6 +105,20 @@ internal final class StoreInfoTableCell: UITableViewCell, NibRegistrable {
         let retryButton = AlertButton(label: "選び直す") {}
         
         AlertController.shared.show(alertType: alertType, buttonList: [doneButton, retryButton])
+    }
+    
+    @IBAction func didTapDeleteButton(_ sender: Any) {
+        guard let dateString = dateString else {
+            return
+        }
+        let alertMessage = AlertMessage(title: "履歴削除", message: dateString + " の履歴を削除してもよろしいですか？")
+        let alertType = AlertType.info(message: alertMessage)
+        let buttonList = [AlertButton(label: "OK") {
+            let history = HistoryManager.shared.historyDataFromRealm(predicate: History.predicate(dateString: dateString))!
+            HistoryManager.shared.deleteHistoryFromRealm(history)
+            self.delegate?.deleteHistory()
+        }, AlertButton(label: "やめる") {}]
+        AlertController.shared.show(alertType: alertType, buttonList: buttonList)
     }
     
 }

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SnapKit
 
 internal final class SideMenuViewController: UIViewController {
 
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var topLabel: UILabel!
-
+    @IBOutlet weak var locationRequestButton: TableHeaderButton!
+    @IBOutlet weak var locationRequestIndicator: UIActivityIndicatorView!
+    
     // MARK: - Initializer
 
     static func instantiate() -> SideMenuViewController {
@@ -29,6 +32,18 @@ internal final class SideMenuViewController: UIViewController {
 
     @IBAction func settingButtonAction(_ settingButton: UIButton) {
         SideMenuItem.setting.selected()
+    }
+    
+    func startLocationRequest() {
+        locationRequestButton.isEnabled = false
+        locationRequestButton.alpha = 0.3
+        locationRequestIndicator.startAnimating()
+    }
+    
+    func stopLocationRequest() {
+        locationRequestButton.isEnabled = true
+        locationRequestButton.alpha = 1.0
+        locationRequestIndicator.stopAnimating()
     }
     
     @IBAction func locationUpdateButtonTapped(_ sender: Any) {

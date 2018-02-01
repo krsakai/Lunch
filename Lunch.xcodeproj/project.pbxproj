@@ -21,6 +21,7 @@
 		C8438ABB2016AB5E00E27F3E /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8438ABA2016AB5E00E27F3E /* UIScrollView.swift */; };
 		C84627971E99465600A535F5 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84627961E99465600A535F5 /* HowToUseViewController.swift */; };
 		C84627991E99467000A535F5 /* HowToUseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84627981E99467000A535F5 /* HowToUseViewController.storyboard */; };
+		C84D045520223AA60021F2D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84D045420223AA50021F2D3 /* Assets.xcassets */; };
 		C851AF841E62ACA300D9039E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C851AF821E62ACA300D9039E /* Localizable.strings */; };
 		C851AF871E62AF9F00D9039E /* SideMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C851AF861E62AF9F00D9039E /* SideMenuTableCell.swift */; };
 		C851AF891E62AFB300D9039E /* SideMemuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C851AF881E62AFB300D9039E /* SideMemuTableCell.xib */; };
@@ -47,14 +48,12 @@
 		C863C95C1E608FA200FD75F1 /* ClonableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863C9301E608FA200FD75F1 /* ClonableObject.swift */; };
 		C863C95E1E608FA200FD75F1 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863C9321E608FA200FD75F1 /* NSDate.swift */; };
 		C863C9661E608FA200FD75F1 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863C93C1E608FA200FD75F1 /* DeviceModel.swift */; };
-		C863C96F1E608FA200FD75F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C863C9471E608FA200FD75F1 /* Assets.xcassets */; };
 		C863C9701E608FA200FD75F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C863C9481E608FA200FD75F1 /* LaunchScreen.storyboard */; };
 		C863C9711E608FA200FD75F1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C863C94A1E608FA200FD75F1 /* Info.plist */; };
 		C863C9731E60A6A500FD75F1 /* HEXColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863C9721E60A6A500FD75F1 /* HEXColor.framework */; };
 		C863C9751E60A6B400FD75F1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863C9741E60A6B400FD75F1 /* SnapKit.framework */; };
 		C863C9771E60A6C300FD75F1 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863C9761E60A6C300FD75F1 /* KeychainAccess.framework */; };
 		C863C9791E60A6D600FD75F1 /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863C9781E60A6D600FD75F1 /* SwiftTask.framework */; };
-		C863C97E1E6166D500FD75F1 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863C97D1E6166D400FD75F1 /* SideMenu.framework */; };
 		C863C9811E616CD800FD75F1 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C863C9801E616CD800FD75F1 /* HeaderView.xib */; };
 		C863C9831E616D3F00FD75F1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863C9821E616D3F00FD75F1 /* HeaderView.swift */; };
 		C863C9881E616FC900FD75F1 /* SideMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C863C9871E616FC900FD75F1 /* SideMenuViewController.storyboard */; };
@@ -108,6 +107,7 @@
 		C896739B1E92C1B800D67069 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C896739A1E92C1B800D67069 /* Settings.bundle */; };
 		C896A833201D5547001E550A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C896A832201D5547001E550A /* ResultViewController.swift */; };
 		C896A837201D55C4001E550A /* ResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C896A836201D55C4001E550A /* ResultViewController.storyboard */; };
+		C89940AF2022544100730AD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C89940AE2022544100730AD0 /* GoogleService-Info.plist */; };
 		C8A1E7A4201E89F300539593 /* KRActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A1E7A3201E89F200539593 /* KRActivityIndicatorView.framework */; };
 		C8EBE4B8201DFAEF006AB75D /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EBE459201DFAEF006AB75D /* SCLAlertView.framework */; };
 		C8EBE4BA201E4786006AB75D /* SearchRangeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EBE4B9201E4786006AB75D /* SearchRangeTableCell.swift */; };
@@ -785,6 +785,7 @@
 		C8438ABA2016AB5E00E27F3E /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		C84627961E99465600A535F5 /* HowToUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		C84627981E99467000A535F5 /* HowToUseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HowToUseViewController.storyboard; sourceTree = "<group>"; };
+		C84D045420223AA50021F2D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Lunch/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C851AF831E62ACA300D9039E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C851AF861E62AF9F00D9039E /* SideMenuTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableCell.swift; sourceTree = "<group>"; };
 		C851AF881E62AFB300D9039E /* SideMemuTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMemuTableCell.xib; sourceTree = "<group>"; };
@@ -817,7 +818,6 @@
 		C863C9301E608FA200FD75F1 /* ClonableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClonableObject.swift; sourceTree = "<group>"; };
 		C863C9321E608FA200FD75F1 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		C863C93C1E608FA200FD75F1 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
-		C863C9471E608FA200FD75F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C863C9491E608FA200FD75F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C863C94A1E608FA200FD75F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C863C9721E60A6A500FD75F1 /* HEXColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HEXColor.framework; path = Carthage/Build/iOS/HEXColor.framework; sourceTree = "<group>"; };
@@ -3293,6 +3293,7 @@
 		C896739A1E92C1B800D67069 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C896A832201D5547001E550A /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C896A836201D55C4001E550A /* ResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResultViewController.storyboard; sourceTree = "<group>"; };
+		C89940AE2022544100730AD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8A1E7A3201E89F200539593 /* KRActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRActivityIndicatorView.framework; path = Carthage/Build/iOS/KRActivityIndicatorView.framework; sourceTree = "<group>"; };
 		C8EBE459201DFAEF006AB75D /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
 		C8EBE4B9201E4786006AB75D /* SearchRangeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRangeTableCell.swift; sourceTree = "<group>"; };
@@ -3334,7 +3335,6 @@
 				C86F61751E88E8D300C829A0 /* EasyTipView.framework in Frameworks */,
 				C851AF901E62D05900D9039E /* ObjectMapper.framework in Frameworks */,
 				C863C9921E61854700FD75F1 /* DrawerController.framework in Frameworks */,
-				C863C97E1E6166D500FD75F1 /* SideMenu.framework in Frameworks */,
 				C863C9791E60A6D600FD75F1 /* SwiftTask.framework in Frameworks */,
 				C863C9771E60A6C300FD75F1 /* KeychainAccess.framework in Frameworks */,
 				C863C9751E60A6B400FD75F1 /* SnapKit.framework in Frameworks */,
@@ -3623,7 +3623,8 @@
 		C863C9461E608FA200FD75F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C863C9471E608FA200FD75F1 /* Assets.xcassets */,
+				C89940AE2022544100730AD0 /* GoogleService-Info.plist */,
+				C84D045420223AA50021F2D3 /* Assets.xcassets */,
 				C863C9481E608FA200FD75F1 /* LaunchScreen.storyboard */,
 				C863C94A1E608FA200FD75F1 /* Info.plist */,
 				C85708331E89D96100B21DE4 /* objc-headers.h */,
@@ -9266,6 +9267,7 @@
 				C85599A61E755E0C000C7C49 /* UnderLineView.xib in Resources */,
 				C8FEA7011E71CD6100503ED5 /* HeaderButtonView.xib in Resources */,
 				C87291A9201293B300B5B070 /* genre.plist in Resources */,
+				C84D045520223AA60021F2D3 /* Assets.xcassets in Resources */,
 				C8EBE4D0201E5FBF006AB75D /* GenreSelectTableCell.xib in Resources */,
 				C87291EE2015F22F00B5B070 /* SeparateLineView.xib in Resources */,
 				C85708461E8A4CCD00B21DE4 /* ThemeColorSelectCell.xib in Resources */,
@@ -9286,11 +9288,11 @@
 				C863C9701E608FA200FD75F1 /* LaunchScreen.storyboard in Resources */,
 				C863C9881E616FC900FD75F1 /* SideMenuViewController.storyboard in Resources */,
 				C87291E02014058100B5B070 /* LunchHistoryViewController.storyboard in Resources */,
+				C89940AF2022544100730AD0 /* GoogleService-Info.plist in Resources */,
 				C84627991E99467000A535F5 /* HowToUseViewController.storyboard in Resources */,
 				C851AF891E62AFB300D9039E /* SideMemuTableCell.xib in Resources */,
 				C851AF841E62ACA300D9039E /* Localizable.strings in Resources */,
 				C8EBE4C9201E5F2B006AB75D /* GenreSelectViewController.storyboard in Resources */,
-				C863C96F1E608FA200FD75F1 /* Assets.xcassets in Resources */,
 				C863C94D1E608FA200FD75F1 /* Main.storyboard in Resources */,
 				C87291CC2013E28D00B5B070 /* LunchLotteryViewController.storyboard in Resources */,
 				C896739B1E92C1B800D67069 /* Settings.bundle in Resources */,
@@ -9331,6 +9333,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Lunch/Pods-Lunch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CTCheckbox/CTCheckbox.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HSegmentControl/HSegmentControl.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -9338,11 +9341,13 @@
 				"${BUILT_PRODUCTS_DIR}/SWTableViewCell/SWTableViewCell.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCop/SwiftCop.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTCheckbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSegmentControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -9350,6 +9355,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWTableViewCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -9385,7 +9391,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftTask.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SideMenu.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DrawerController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/EasyTipView.framework",
@@ -9845,6 +9850,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 154D59633099506DAFEF94F9 /* Pods-Lunch.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -9857,10 +9863,8 @@
 				INFOPLIST_FILE = "Lunch/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kudoukun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudoukun.todaylunch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -9871,8 +9875,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B906865CE831E40077D07FFD /* Pods-Lunch.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5R2LS4A9QF;
@@ -9883,10 +9888,8 @@
 				INFOPLIST_FILE = "Lunch/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kudoukun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudoukun.todaylunch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
