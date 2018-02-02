@@ -91,6 +91,7 @@
 		C87291F22015FC8A00B5B070 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87291F12015FC8A00B5B070 /* UITableView.swift */; };
 		C8729DBE2016857100B5B070 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87292252016854400B5B070 /* AlamofireImage.framework */; };
 		C8778F281E997BB900E336E7 /* FilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8778F271E997BB900E336E7 /* FilePath.swift */; };
+		C885804B2023DDF70005089E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C885804A2023DDF70005089E /* Location.swift */; };
 		C887E193201A407C006C6730 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E192201A407C006C6730 /* StoreDetailViewController.swift */; };
 		C887E195201A408D006C6730 /* StoreDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */; };
 		C887E21C201C0F56006C6730 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E21B201C0F56006C6730 /* MapViewController.swift */; };
@@ -3277,6 +3278,7 @@
 		C8729CA82016854A00B5B070 /* ci.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci.sh; sourceTree = "<group>"; };
 		C8729CA92016854A00B5B070 /* UIColor_Hex_Swift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIColor_Hex_Swift.podspec; sourceTree = "<group>"; };
 		C8778F271E997BB900E336E7 /* FilePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePath.swift; sourceTree = "<group>"; };
+		C885804A2023DDF70005089E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C887E192201A407C006C6730 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailViewController.storyboard; sourceTree = "<group>"; };
 		C887E21B201C0F56006C6730 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -3541,6 +3543,7 @@
 				C87291A420128B2D00B5B070 /* Genre.swift */,
 				C87291AA201366D500B5B070 /* Store.swift */,
 				C87291AC20136EDA00B5B070 /* History.swift */,
+				C885804A2023DDF70005089E /* Location.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -9452,6 +9455,7 @@
 				C87291EC2015F1D800B5B070 /* WeakLabel.swift in Sources */,
 				C806968A1E6481DE00978338 /* LunchColor.swift in Sources */,
 				C8438ABB2016AB5E00E27F3E /* UIScrollView.swift in Sources */,
+				C885804B2023DDF70005089E /* Location.swift in Sources */,
 				C8778F281E997BB900E336E7 /* FilePath.swift in Sources */,
 				C85708761E8C3C4F00B21DE4 /* CommonWebViewController.swift in Sources */,
 				C863C98A1E616FDB00FD75F1 /* SideMenuViewController.swift in Sources */,

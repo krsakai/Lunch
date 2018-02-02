@@ -30,15 +30,6 @@ internal struct ApiManager {
         self.parameters.merge(extraParameters) { oldValue, newValue in
             return oldValue
         }
-        self.parameters.merge(["count": "100"]) { oldValue, newValue in
-            return oldValue
-        }
-        self.parameters.merge(["key": apiInfo.apiKey]) { oldValue, newValue in
-            return oldValue
-        }
-        self.parameters.merge(["format": "json"]) { oldValue, newValue in
-            return oldValue
-        }
     }
     
     func request<T: Mappable>(success: @escaping (_ data: [T]) -> Void, fail: @escaping (_ error: Error?) -> Void) {

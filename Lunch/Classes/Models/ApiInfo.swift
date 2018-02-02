@@ -34,19 +34,33 @@ internal enum ApiInfo {
     case searchStore(location: CLLocation)
     case searchStoreFromGenre(location: CLLocation, genre: Genre)
     case searchStoreFromKeyword(location: CLLocation, keyword: String)
+    case geocoding(keyword: String)
     
     var apiKey: String {
-        return  "12687151f2b51658" // ホットペッパーAPIKey
+        switch self {
+        case .geocoding:
+            return "AIzaSyA0osDFGKTiWr18gZB6KowRHI5JH_SveVU"
+        default:
+            return "12687151f2b51658" // ホットペッパーAPIKey
+        }
+        
     }
     
     var host: String {
-        return "https://webservice.recruit.co.jp/" // ホットペッパーAPIプロトコル + ドメイン
+        switch self {
+        case .searchStore, .searchStoreFromGenre, .searchStoreFromKeyword:
+            return "https://webservice.recruit.co.jp/" // ホットペッパーAPIプロトコル + ドメイン
+        case .geocoding:
+            return "https://maps.googleapis.com/"
+        }
     }
     
     var path: String {
         switch self {
         case .searchStore, .searchStoreFromKeyword, .searchStoreFromGenre:
             return "hotpepper/gourmet/v1/" // グルメサーチAPI
+        case .geocoding:
+            return "maps/api/geocode/json"
         }
     }
     
@@ -65,7 +79,11 @@ internal enum ApiInfo {
                     [
                         "lat": String(location.coordinate.latitude),
                         "lng": String(location.coordinate.longitude),
-                        "range": DeviceModel.searchRange.rawValue
+                        "range": DeviceModel.searchRange.rawValue,
+                        "count": "100",
+                        "key": apiKey,
+                        "format": "json"
+                        
                     ]
         case .searchStoreFromKeyword(let location, let keyword):
             return
@@ -73,7 +91,10 @@ internal enum ApiInfo {
                         "keyword": keyword,
                         "lat": String(location.coordinate.latitude),
                         "lng": String(location.coordinate.longitude),
-                        "range": SearchRange.huge.rawValue
+                        "range": SearchRange.huge.rawValue,
+                        "count": "100",
+                        "key": apiKey,
+                        "format": "json"
                     ]
         case .searchStoreFromGenre(let location, let genre):
             return
@@ -81,13 +102,27 @@ internal enum ApiInfo {
                         "food": genre.code,
                         "lat": String(location.coordinate.latitude),
                         "lng": String(location.coordinate.longitude),
-                        "range": DeviceModel.searchRange.rawValue
+                        "range": DeviceModel.searchRange.rawValue,
+                        "count": "100",
+                        "key": apiKey,
+                        "format": "json"
+                    ]
+        case .geocoding(let keyword):
+            return
+                    [
+                        "address": keyword,
+                        "key": apiKey,
                     ]
         }
     }
     
     // FIXME: 変換エラーを考慮する
     func responseJSON(value: Dictionary<String, Any>) -> JSON {
-        return JSON(value)["results"]["shop"]
+        switch self {
+        case .geocoding:
+            return JSON(value)["results"][0]["geometry"]["location"]
+        default:
+            return JSON(value)["results"]["shop"]
+        }
     }
 }
