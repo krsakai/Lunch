@@ -5,8 +5,9 @@
 ////  Created by 酒井邦也 on 2017/03/28.
 ////  Copyright © 2017年 酒井邦也. All rights reserved.
 ////
-//
+
 import UIKit
+import GoogleMobileAds
 
 internal enum Setting {
     case genreSelect
@@ -45,8 +46,9 @@ internal enum Setting {
 internal final class SettingViewController: UIViewController, HeaderViewDisplayable  {
 
     @IBOutlet weak var headerView: HeaderView!
-    
     @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet private weak var bannerView: GADBannerView!
+    
     
     fileprivate var settingList: [[Setting]] {
         return [[.genreSelect], [.searchPlace], [.searchRange], [.themeColor], [.howToUse], [.copyright]]
@@ -64,6 +66,23 @@ internal final class SettingViewController: UIViewController, HeaderViewDisplaya
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHeaderView("設定", headerItems: HeaderItems(leftItems: [.close], rightItems: nil))
+        
+        bannerView.adUnitID = AdType.banner.adId
+        bannerView.rootViewController = self
+        let request = GADRequest()
+        #if DEBUG
+            request.testDevices = [kGADSimulatorID]
+        #endif
+        bannerView.load(request)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let request = GADRequest()
+        #if DEBUG
+            request.testDevices = [kGADSimulatorID]
+        #endif
+        bannerView.load(request)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

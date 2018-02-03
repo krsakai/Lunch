@@ -78,7 +78,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zL6-CZ-njj">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="416"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="466"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="9JD-mJ-up5">
                                             <size key="itemSize" width="75" height="44"/>
@@ -119,8 +119,8 @@
                                             <outlet property="delegate" destination="6lH-R5-R7d" id="lgT-yU-6kw"/>
                                         </connections>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-9p-EHU" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="471" width="375" height="50"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfi-9p-EHU" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="521" width="375" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="Ng1-Mb-P1e"/>

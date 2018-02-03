@@ -33,13 +33,14 @@ internal final class MapViewController: UIViewController, HeaderViewDisplayable 
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(store.latitude.degree, store.longitude.degree)
         mapView.addAnnotation(annotation)
-        mapView.showAnnotations(mapView.annotations, animated: true)
         
         let targetLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
         if let curerntLocation = DeviceModel.currentLocation {
             let degree = curerntLocation.distance(from: targetLocation)
-            let region = MKCoordinateRegionMakeWithDistance(targetLocation.coordinate, degree, degree)
+            let region = MKCoordinateRegionMakeWithDistance(curerntLocation.coordinate, degree * 2.25, degree * 2.25)
             mapView.setRegion(region, animated: true)
+        } else {
+            mapView.showAnnotations(mapView.annotations, animated: true)
         }
     }
     

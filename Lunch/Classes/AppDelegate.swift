@@ -23,13 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.shared.setup()
         window?.rootViewController = instantiateRootViewController
         
-        let apiInfo = ApiInfo.geocoding(keyword: "東京")
-        ApiManager(apiInfo: apiInfo).request(success: { [weak self] (locationList: [Location])  in
-            print(locationList)
-        }, fail: { error in
-            
-        })
-        
         return true
     }
 }
