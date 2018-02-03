@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BCB374B27AA2D7E46B587171 /* Pods_Lunch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE8817ACBA2D6679954FE89 /* Pods_Lunch.framework */; };
-		C80696871E647C7700978338 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80696861E647C7700978338 /* Attendance.swift */; };
 		C806968A1E6481DE00978338 /* LunchColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80696881E6481DE00978338 /* LunchColor.swift */; };
 		C806968B1E6481DE00978338 /* LunchFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80696891E6481DE00978338 /* LunchFont.swift */; };
 		C80696911E648E0300978338 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80696901E648E0300978338 /* Mappable.swift */; };
@@ -38,8 +37,6 @@
 		C857085E1E8C369A00B21DE4 /* Popover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C857085D1E8C369A00B21DE4 /* Popover.framework */; };
 		C85708711E8C3C4F00B21DE4 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85708661E8C3C4F00B21DE4 /* AlertController.swift */; };
 		C85708721E8C3C4F00B21DE4 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85708671E8C3C4F00B21DE4 /* LoadingController.swift */; };
-		C85708751E8C3C4F00B21DE4 /* CommonWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C857086C1E8C3C4F00B21DE4 /* CommonWebViewController.storyboard */; };
-		C85708761E8C3C4F00B21DE4 /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C857086D1E8C3C4F00B21DE4 /* CommonWebViewController.swift */; };
 		C85C3AD41E8EEDCB00C8B468 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C3AD31E8EEDCB00C8B468 /* String.swift */; };
 		C85C3AD61E8F249600C8B468 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85C3AD51E8F249600C8B468 /* MessageUI.framework */; };
 		C863C9101E608D0C00FD75F1 /* LunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863C90F1E608D0C00FD75F1 /* LunchTests.swift */; };
@@ -92,6 +89,8 @@
 		C8729DBE2016857100B5B070 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87292252016854400B5B070 /* AlamofireImage.framework */; };
 		C8778F281E997BB900E336E7 /* FilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8778F271E997BB900E336E7 /* FilePath.swift */; };
 		C885804B2023DDF70005089E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C885804A2023DDF70005089E /* Location.swift */; };
+		C88580C8202599A30005089E /* SearchPlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88580C7202599A30005089E /* SearchPlaceTableCell.swift */; };
+		C885812120259A180005089E /* SearchPlaceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C885812020259A180005089E /* SearchPlaceTableCell.xib */; };
 		C887E193201A407C006C6730 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E192201A407C006C6730 /* StoreDetailViewController.swift */; };
 		C887E195201A408D006C6730 /* StoreDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */; };
 		C887E21C201C0F56006C6730 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887E21B201C0F56006C6730 /* MapViewController.swift */; };
@@ -774,7 +773,6 @@
 /* Begin PBXFileReference section */
 		154D59633099506DAFEF94F9 /* Pods-Lunch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lunch/Pods-Lunch.debug.xcconfig"; sourceTree = "<group>"; };
 		B906865CE831E40077D07FFD /* Pods-Lunch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lunch/Pods-Lunch.release.xcconfig"; sourceTree = "<group>"; };
-		C80696861E647C7700978338 /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		C80696881E6481DE00978338 /* LunchColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunchColor.swift; sourceTree = "<group>"; };
 		C80696891E6481DE00978338 /* LunchFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunchFont.swift; sourceTree = "<group>"; };
 		C80696901E648E0300978338 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
@@ -805,8 +803,6 @@
 		C857085D1E8C369A00B21DE4 /* Popover.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Popover.framework; path = Carthage/Build/iOS/Popover.framework; sourceTree = "<group>"; };
 		C85708661E8C3C4F00B21DE4 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		C85708671E8C3C4F00B21DE4 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
-		C857086C1E8C3C4F00B21DE4 /* CommonWebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CommonWebViewController.storyboard; sourceTree = "<group>"; };
-		C857086D1E8C3C4F00B21DE4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		C857CC561E7138C2007A3E35 /* SwiftSpinner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSpinner.framework; path = Carthage/Build/iOS/SwiftSpinner.framework; sourceTree = "<group>"; };
 		C85C3AD31E8EEDCB00C8B468 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C85C3AD51E8F249600C8B468 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -3279,6 +3275,8 @@
 		C8729CA92016854A00B5B070 /* UIColor_Hex_Swift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIColor_Hex_Swift.podspec; sourceTree = "<group>"; };
 		C8778F271E997BB900E336E7 /* FilePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePath.swift; sourceTree = "<group>"; };
 		C885804A2023DDF70005089E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C88580C7202599A30005089E /* SearchPlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceTableCell.swift; sourceTree = "<group>"; };
+		C885812020259A180005089E /* SearchPlaceTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlaceTableCell.xib; sourceTree = "<group>"; };
 		C887E192201A407C006C6730 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		C887E194201A408D006C6730 /* StoreDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDetailViewController.storyboard; sourceTree = "<group>"; };
 		C887E21B201C0F56006C6730 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -3437,6 +3435,8 @@
 				C8EBE4BB201E47A5006AB75D /* SearchRangeTableCell.xib */,
 				C8EBE4BD201E5272006AB75D /* HowToUseTableCell.swift */,
 				C8EBE4BF201E5283006AB75D /* HowToUseTableCell.xib */,
+				C88580C7202599A30005089E /* SearchPlaceTableCell.swift */,
+				C885812020259A180005089E /* SearchPlaceTableCell.xib */,
 			);
 			path = SettingTableCell;
 			sourceTree = "<group>";
@@ -3448,15 +3448,6 @@
 				C85708671E8C3C4F00B21DE4 /* LoadingController.swift */,
 			);
 			path = Alert;
-			sourceTree = "<group>";
-		};
-		C857086B1E8C3C4F00B21DE4 /* CommonWeb */ = {
-			isa = PBXGroup;
-			children = (
-				C857086D1E8C3C4F00B21DE4 /* CommonWebViewController.swift */,
-				C857086C1E8C3C4F00B21DE4 /* CommonWebViewController.storyboard */,
-			);
-			path = CommonWeb;
 			sourceTree = "<group>";
 		};
 		C863C8EE1E608D0C00FD75F1 = {
@@ -3528,7 +3519,6 @@
 				C87291C02013E0CE00B5B070 /* GenreSelect */,
 				C863C9861E616FB100FD75F1 /* SideMenu */,
 				C85708361E8A42AD00B21DE4 /* Setting */,
-				C857086B1E8C3C4F00B21DE4 /* CommonWeb */,
 				C84627951E99464500A535F5 /* HowToUse */,
 				C85708651E8C3C4F00B21DE4 /* Alert */,
 				C863C91E1E608FA200FD75F1 /* Main.storyboard */,
@@ -3539,7 +3529,6 @@
 		C863C9251E608FA200FD75F1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C80696861E647C7700978338 /* Attendance.swift */,
 				C87291A420128B2D00B5B070 /* Genre.swift */,
 				C87291AA201366D500B5B070 /* Store.swift */,
 				C87291AC20136EDA00B5B070 /* History.swift */,
@@ -9275,7 +9264,6 @@
 				C87291EE2015F22F00B5B070 /* SeparateLineView.xib in Resources */,
 				C85708461E8A4CCD00B21DE4 /* ThemeColorSelectCell.xib in Resources */,
 				C887E22C201C9371006C6730 /* GenreListCell.xib in Resources */,
-				C85708751E8C3C4F00B21DE4 /* CommonWebViewController.storyboard in Resources */,
 				C863C9811E616CD800FD75F1 /* HeaderView.xib in Resources */,
 				C87291E620153DB900B5B070 /* StoreInfoTableCell.xib in Resources */,
 				C8EBE4C0201E5283006AB75D /* HowToUseTableCell.xib in Resources */,
@@ -9292,6 +9280,7 @@
 				C863C9881E616FC900FD75F1 /* SideMenuViewController.storyboard in Resources */,
 				C87291E02014058100B5B070 /* LunchHistoryViewController.storyboard in Resources */,
 				C89940AF2022544100730AD0 /* GoogleService-Info.plist in Resources */,
+				C885812120259A180005089E /* SearchPlaceTableCell.xib in Resources */,
 				C84627991E99467000A535F5 /* HowToUseViewController.storyboard in Resources */,
 				C851AF891E62AFB300D9039E /* SideMemuTableCell.xib in Resources */,
 				C851AF841E62ACA300D9039E /* Localizable.strings in Resources */,
@@ -9457,10 +9446,9 @@
 				C8438ABB2016AB5E00E27F3E /* UIScrollView.swift in Sources */,
 				C885804B2023DDF70005089E /* Location.swift in Sources */,
 				C8778F281E997BB900E336E7 /* FilePath.swift in Sources */,
-				C85708761E8C3C4F00B21DE4 /* CommonWebViewController.swift in Sources */,
 				C863C98A1E616FDB00FD75F1 /* SideMenuViewController.swift in Sources */,
 				C85708441E8A4CB800B21DE4 /* ThemeColorSelectCell.swift in Sources */,
-				C80696871E647C7700978338 /* Attendance.swift in Sources */,
+				C88580C8202599A30005089E /* SearchPlaceTableCell.swift in Sources */,
 				C863C9901E61765F00FD75F1 /* R.generated.swift in Sources */,
 				C87291AD20136EDA00B5B070 /* History.swift in Sources */,
 				C863C94B1E608FA200FD75F1 /* AppDelegate.swift in Sources */,

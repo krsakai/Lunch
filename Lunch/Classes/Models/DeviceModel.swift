@@ -64,6 +64,9 @@ internal final class DeviceModel {
         case themeColor              = "ThemeColor"
         case searchRadius            = "SearchRadius"
         case searchLocationDateTime  = "SearchLocationDateTime"
+        case customLocationName      = "CustomLocationName"
+        case customLocationX         = "CustomLocationX"
+        case customLocationY         = "CustomLocationY"
     }
     
     static var isFirstReadMasterData: Bool {
@@ -120,6 +123,39 @@ internal final class DeviceModel {
         }
         set {
             UserDefaults.standard.set(newValue.stringFromDate(format: .noSeparatorYearToSecond), forKey: UserDefaultsKey.searchLocationDateTime.rawValue)
+        }
+    }
+    
+    static var isCustomLocation: Bool {
+        if let location = DeviceModel.customLocation {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static var customLocation: Location? {
+        get {
+            let locationName = UserDefaults.standard.string(forKey: UserDefaultsKey.customLocationName.rawValue)
+            let latitude = UserDefaults.standard.double(forKey: UserDefaultsKey.customLocationX.rawValue)
+            let longitude = UserDefaults.standard.double(forKey: UserDefaultsKey.customLocationY.rawValue)
+            
+            if let name = locationName, !name.isEmpty, latitude != 0, longitude != 0 {
+                return Location(name: name, latitude: latitude, longitude: longitude)
+            } else {
+                return nil
+            }
+        }
+        set {
+            guard let location = newValue else {
+                UserDefaults.standard.removeObject(forKey: UserDefaultsKey.customLocationName.rawValue)
+                UserDefaults.standard.removeObject(forKey: UserDefaultsKey.customLocationX.rawValue)
+                UserDefaults.standard.removeObject(forKey: UserDefaultsKey.customLocationY.rawValue)
+                return
+            }
+            UserDefaults.standard.set(location.name, forKey: UserDefaultsKey.customLocationName.rawValue)
+            UserDefaults.standard.set(location.latitude, forKey: UserDefaultsKey.customLocationX.rawValue)
+            UserDefaults.standard.set(location.longitude, forKey: UserDefaultsKey.customLocationY.rawValue)
         }
     }
     

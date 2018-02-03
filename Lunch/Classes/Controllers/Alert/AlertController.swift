@@ -8,12 +8,14 @@
 
 import UIKit
 import SCLAlertView
+import SnapKit
 
 typealias AlertButton = (label: String, action: () -> Swift.Void)
 
 typealias AlertMessage = (title: String?, message: String?)
 internal enum AlertType {
     case info(message: AlertMessage)
+    case edit(message: AlertMessage)
     case regist(message: AlertMessage)
     case loading(message: AlertMessage)
     case error(message: AlertMessage)
@@ -24,6 +26,10 @@ internal enum AlertType {
             let title = message.title ?? ""
             let subtitle = message.message ?? ""
             alertView?.showInfo(title, subTitle: subtitle, colorStyle: UInt(DeviceModel.themeColor.hexValue))
+        case .edit(let message):
+            let title = message.title ?? ""
+            let subtitle = message.message ?? ""
+            alertView?.showEdit(title, subTitle: subtitle, colorStyle: UInt(DeviceModel.themeColor.hexValue))
         case .regist(let message):
             let title = message.title ?? ""
             let subtitle = message.message ?? ""
@@ -46,12 +52,21 @@ internal class AlertController {
     
     var alertView: SCLAlertView?
     
-    func show(alertType: AlertType, buttonList: [AlertButton]?) {
+    func show(alertType: AlertType, buttonList: [AlertButton]?, textFiled: UITextField? = nil) {
         alertView = SCLAlertView(appearance: SCLAlertView.SCLAppearance.init(showCloseButton: false))
         if let buttonList = buttonList {
             buttonList.forEach { button in
                 alertView?.addButton(button.label, action: button.action)
             }
+        }
+        if let textFiled = textFiled {
+            let subview = UIView(frame: CGRect(x: 0, y: 0, width: textFiled.frame.width, height: textFiled.frame.height))
+            textFiled.layer.borderColor = DeviceModel.themeColor.color.cgColor
+            textFiled.layer.borderWidth = 1
+            textFiled.layer.cornerRadius = 5
+            textFiled.textAlignment = .natural
+            subview.addSubview(textFiled)
+            alertView?.customSubview = subview
         }
         alertType.showAlert(alertView: alertView)
     }
@@ -70,10 +85,16 @@ internal class AlertController {
 
 protocol AlertDisplayable {
     func showAlert(alertType: AlertType, buttonList: [AlertButton]?)
+    func showAlert(alertType: AlertType, buttonList: [AlertButton]?, textFiled: UITextField?)
 }
 
 extension UIViewController: AlertDisplayable {
+    
     func showAlert(alertType: AlertType, buttonList: [AlertButton]?) {
-        AlertController.shared.show(alertType: alertType, buttonList: buttonList)
+        self.showAlert(alertType: alertType, buttonList: buttonList, textFiled: nil)
+    }
+    
+    func showAlert(alertType: AlertType, buttonList: [AlertButton]?, textFiled: UITextField? = nil) {
+        return AlertController.shared.show(alertType: alertType, buttonList: buttonList, textFiled: textFiled)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 internal enum Setting {
     case genreSelect
+    case searchPlace
     case searchRange
     case themeColor
     case howToUse
@@ -18,6 +19,7 @@ internal enum Setting {
     var title: String {
         switch self {
         case .genreSelect: return "ジャンル設定"
+        case .searchPlace: return "検索場所"
         case .searchRange: return "検索範囲 (半径)"
         case .themeColor: return "テーマ色選択"
         case .howToUse: return "使い方"
@@ -28,6 +30,7 @@ internal enum Setting {
     func cell(owner: AnyObject) -> UITableViewCell {
         switch self {
         case .genreSelect: return GenreSelectCell.instantiate(owner)
+        case .searchPlace: return SearchPlaceTableCell.instantiate(owner)
         case .searchRange: return SearchRangeTableCell.instantiate(owner)
         case .themeColor: return ThemeColorSelectCell.instantiate(owner)
         case .howToUse: return HowToUseTableCell.instantiate(owner)
@@ -46,7 +49,7 @@ internal final class SettingViewController: UIViewController, HeaderViewDisplaya
     @IBOutlet fileprivate weak var tableView: UITableView!
     
     fileprivate var settingList: [[Setting]] {
-        return [[.genreSelect], [.searchRange], [.themeColor], [.howToUse], [.copyright]]
+        return [[.genreSelect], [.searchPlace], [.searchRange], [.themeColor], [.howToUse], [.copyright]]
     }
     
     // MARK: - Initializer

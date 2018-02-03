@@ -22,8 +22,8 @@ internal class LoadingController {
         KRProgressHUD.set(activityIndicatorViewStyle: .color(DeviceModel.themeColor.color))
     }
     
-    func show() {
-        KRProgressHUD.show(withMessage: "ロード中")
+    func show(title: String = "ロード中") {
+        KRProgressHUD.show(withMessage: title)
     }
     
     func hide(completion: (() -> Void)? = nil) {

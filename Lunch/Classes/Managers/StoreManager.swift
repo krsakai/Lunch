@@ -34,9 +34,9 @@ internal final class StoreManager {
     }
     
     /// 現在地から検索した店舗一覧を取得する
-    func searchStoreListDataFromLocation(condition: StoreSearchCondition = .locationOnly) -> StoreListDataTask {
+    func searchStoreListDataFromLocation(condition: StoreSearchCondition = .locationOnly, isForceCurrent: Bool = false) -> StoreListDataTask {
         return StoreListDataTask { _, fulfill, reject, _ in
-            LocationManager.shared.currentLocationTask().success { location in
+            LocationManager.shared.currentLocationTask(isForceCurrent: isForceCurrent).success { location in
                 self.searchStoreListData(apiInfo: condition.apiInfo(location: location)).success { storeList in
                     fulfill(storeList)
                 }.failure { _ in

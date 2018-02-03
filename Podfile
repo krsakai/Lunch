@@ -10,6 +10,8 @@ pod 'HSegmentControl', :git => 'https://github.com/krsakai/HSegmentControl.git',
 pod 'TTTAttributedLabel'
 pod 'Google-Mobile-Ads-SDK'
 pod 'Firebase/Core'
+pod 'Fabric', '~> 1.7.2'
+pod 'Crashlytics', '~> 3.9.3'
 
 target 'Lunch' do
    pod 'CTCheckbox', '~> 0.0.5'

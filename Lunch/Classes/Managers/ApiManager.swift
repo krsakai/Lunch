@@ -38,8 +38,8 @@ internal struct ApiManager {
                 fail(response.result.error)
                 return
             }
-            let list = self.apiInfo.responseJSON(value: value).flatMap { (param, json) in
-                Mapper<T>().map(JSONObject: json.dictionaryObject)
+            let list = self.apiInfo.responseJSON(value: value).flatMap { dictionary in
+                Mapper<T>().map(JSONObject: dictionary)
             }
             success(list)
         }

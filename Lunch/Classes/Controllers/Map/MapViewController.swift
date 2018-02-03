@@ -34,6 +34,13 @@ internal final class MapViewController: UIViewController, HeaderViewDisplayable 
         annotation.coordinate = CLLocationCoordinate2DMake(store.latitude.degree, store.longitude.degree)
         mapView.addAnnotation(annotation)
         mapView.showAnnotations(mapView.annotations, animated: true)
+        
+        let targetLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        if let curerntLocation = DeviceModel.currentLocation {
+            let degree = curerntLocation.distance(from: targetLocation)
+            let region = MKCoordinateRegionMakeWithDistance(targetLocation.coordinate, degree, degree)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     // MARK: - IBAction

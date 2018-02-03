@@ -21,9 +21,9 @@ internal class ThemeColorSelectCell: UITableViewCell {
         let cell = R.nib.themeColorSelectCell.firstView(owner: owner, options: nil)!
         cell.segmentControl.dataSource = cell
         cell.segmentControl.numberOfDisplayedSegments = cell.themeColorList.count
-        cell.segmentControl.selectedTitleFont = UIFont.systemFont(ofSize: 17)
+        cell.segmentControl.selectedTitleFont = UIFont.systemFont(ofSize: 14)
         cell.segmentControl.selectedTitleColor = UIColor.white
-        cell.segmentControl.unselectedTitleFont = UIFont.systemFont(ofSize: 17)
+        cell.segmentControl.unselectedTitleFont = UIFont.systemFont(ofSize: 14)
         cell.segmentControl.unselectedTitleColor = UIColor.gray
         cell.segmentControl.segmentIndicatorView.backgroundColor = DeviceModel.themeColor.color
         cell.segmentControl.selectedIndex = cell.themeColorList.index(of: DeviceModel.themeColor)!

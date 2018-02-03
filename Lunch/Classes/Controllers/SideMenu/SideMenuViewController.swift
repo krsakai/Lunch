@@ -50,7 +50,7 @@ internal final class SideMenuViewController: UIViewController {
         let alertMessage = AlertMessage(title: "現在地情報の更新", message: "現在地情報の更新を行ってもよろしいですか？")
         let alertType = AlertType.info(message: alertMessage)
         let buttonList = [AlertButton(label: "OK") {
-            _ = LocationManager.shared.currentLocationTask(isForce: true)
+            _ = LocationManager.shared.currentLocationTask(isForceReload: true)
         }, AlertButton(label: "やめる") {}]
         showAlert(alertType: alertType, buttonList: buttonList)
     }

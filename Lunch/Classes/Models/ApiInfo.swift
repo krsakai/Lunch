@@ -117,12 +117,23 @@ internal enum ApiInfo {
     }
     
     // FIXME: 変換エラーを考慮する
-    func responseJSON(value: Dictionary<String, Any>) -> JSON {
+    func responseJSON(value: Dictionary<String, Any>) -> [[String: Any]?] {
         switch self {
         case .geocoding:
-            return JSON(value)["results"][0]["geometry"]["location"]
+            guard var locationDictionary = JSON(value)["results"][0]["geometry"]["location"].dictionaryObject else {
+                return [nil]
+            }
+            guard let nameDictionary = JSON(value)["results"][0].dictionaryObject else {
+                return [nil]
+            }
+            locationDictionary.merge(nameDictionary) { oldValue, newValue in
+                return oldValue
+            }
+            return [locationDictionary]
         default:
-            return JSON(value)["results"]["shop"]
+            return JSON(value)["results"]["shop"].flatMap { (param, json) in
+                json.dictionaryObject
+            }
         }
     }
 }

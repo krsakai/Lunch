@@ -30,16 +30,41 @@ internal final class LocationManager: NSObject  {
     }
     
     typealias CurrentLocationTask = Task<Void, CLLocation, LunchError>
-    func currentLocationTask(isForce: Bool = false) -> CurrentLocationTask {
+    func currentLocationTask(isForceReload: Bool = false, isForceCurrent: Bool = false) -> CurrentLocationTask {
         AppDelegate.sideMenu?.startLocationRequest()
         return CurrentLocationTask { _, fulfill, reject, _ in
-            if let location = DeviceModel.currentLocation,  !DeviceModel.searchLocationDateTime.isExpied(), !isForce {
-                AppDelegate.sideMenu?.stopLocationRequest()
-                fulfill(location)
-            } else {
+            guard !isForceReload else {
                 self.fulfill = fulfill
                 self.reject = reject
                 self.locationManager?.requestLocation()
+                return
+            }
+            
+            guard !isForceCurrent else {
+                if let location = DeviceModel.currentLocation, !DeviceModel.searchLocationDateTime.isExpied() {
+                    AppDelegate.sideMenu?.stopLocationRequest()
+                    fulfill(location)
+                } else {
+                    self.fulfill = fulfill
+                    self.reject = reject
+                    self.locationManager?.requestLocation()
+                }
+                return
+            }
+            
+            if let customLocation = DeviceModel.customLocation {
+                AppDelegate.sideMenu?.stopLocationRequest()
+                let location = CLLocation(latitude: customLocation.latitude, longitude: customLocation.longitude)
+                fulfill(location)
+            } else {
+                if let location = DeviceModel.currentLocation, !DeviceModel.searchLocationDateTime.isExpied() {
+                    AppDelegate.sideMenu?.stopLocationRequest()
+                    fulfill(location)
+                } else {
+                    self.fulfill = fulfill
+                    self.reject = reject
+                    self.locationManager?.requestLocation()
+                }
             }
         }
     }

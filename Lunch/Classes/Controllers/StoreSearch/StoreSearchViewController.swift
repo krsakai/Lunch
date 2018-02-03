@@ -43,7 +43,7 @@ internal final class StoreSearchViewController: UIViewController, HeaderViewDisp
         tableView.emptyDataSetSource = self
         tableView.register(StoreInfoTableCell.self)
         showLoading()
-        StoreManager.shared.searchStoreListDataFromLocation().success { storeList in
+        StoreManager.shared.searchStoreListDataFromLocation(isForceCurrent: true).success { storeList in
             self.hideLoading()
             self.currentLocationStoreList = storeList
             self.tableView.reloadData()

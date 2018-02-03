@@ -258,14 +258,15 @@ open class HSegmentControl: UIControl {
             titleLabel.text = segmentTitles[index]
             titleLabel.textAlignment = .center
             titleLabel.textColor = index == selectedIndex ? selectedTitleColor : unselectedTitleColor
-            
+            titleLabel.numberOfLines = 0
+            titleLabel.lineBreakMode = .byWordWrapping
             titleLabel.font = (index == selectedIndex ? selectedTitleFont : unselectedTitleFont) ?? defaultFont
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             baseView.addSubview(titleLabel)
             segmentTitleLabels.append(titleLabel)
             
             let widthContraint = NSLayoutConstraint(item: titleLabel, attribute: .width, relatedBy: .equal, toItem: segmentBaseViews[index], attribute: .width, multiplier: 0.8, constant: 0)
-            let heightContraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: segmentBaseViews[index], attribute: .height, multiplier: 0.8, constant: 0)
+            let heightContraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: segmentBaseViews[index], attribute: .height, multiplier: 2.0, constant: 0)
             let xContraint = NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: segmentBaseViews[index], attribute: .centerX, multiplier: 1, constant: 0)
             let yContraint = NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal, toItem: segmentBaseViews[index], attribute: .centerY, multiplier: 1, constant: 0)
             
